@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8518c41d-745e-4a6e-b1ef-ab330606c57b" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2SYo88viUFIViScnbIt5wHkcHXj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/axelhuon/Lab/tori-next-app/gloabalStyle/fonts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/axelhuon/Lab/tori-next-app/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/axelhuon/Lab/tori-next-app/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gloabalStyle/fonts" />
+      <recent name="$PROJECT_DIR$/components/Atomes/Icon" />
+      <recent name="$PROJECT_DIR$/public/images/logos" />
+      <recent name="$PROJECT_DIR$/app/signin" />
+      <recent name="$PROJECT_DIR$/app/auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/Molecules" />
+      <recent name="$PROJECT_DIR$/components/Atomes/Modal/Partials/Banner" />
+      <recent name="$PROJECT_DIR$/components/Atomes/Inputs/InputText" />
+      <recent name="$PROJECT_DIR$/app/user/[userId]" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8518c41d-745e-4a6e-b1ef-ab330606c57b" name="Changes" comment="" />
+      <created>1689332714017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689332714017</updated>
+      <workItem from="1689332715035" duration="4926000" />
+      <workItem from="1690269335871" duration="2721000" />
+      <workItem from="1690276057728" duration="303000" />
+      <workItem from="1690386220381" duration="13469000" />
+      <workItem from="1690442707571" duration="15000" />
+      <workItem from="1690473525290" duration="8047000" />
+      <workItem from="1690530302647" duration="1810000" />
+      <workItem from="1690549612692" duration="939000" />
+      <workItem from="1690551754228" duration="297000" />
+      <workItem from="1690556234245" duration="19000" />
+      <workItem from="1690556293727" duration="9881000" />
+      <workItem from="1691654743845" duration="14611000" />
+      <workItem from="1691703079412" duration="20159000" />
+      <workItem from="1691837634382" duration="2667000" />
+      <workItem from="1691920783379" duration="5593000" />
+      <workItem from="1692017732715" duration="2000" />
+      <workItem from="1692032322080" duration="2230000" />
+      <workItem from="1692290866713" duration="1958000" />
+      <workItem from="1692346457691" duration="9000" />
+      <workItem from="1692636797978" duration="922000" />
+      <workItem from="1692723181605" duration="1784000" />
+      <workItem from="1692896919728" duration="1942000" />
+      <workItem from="1692982446100" duration="1170000" />
+      <workItem from="1692986381340" duration="3640000" />
+      <workItem from="1693229809670" duration="30000" />
+      <workItem from="1693296934822" duration="611000" />
+      <workItem from="1693382805414" duration="1056000" />
+      <workItem from="1693417408262" duration="113000" />
+      <workItem from="1693417526593" duration="2721000" />
+      <workItem from="1693582847184" duration="4193000" />
+      <workItem from="1693755412366" duration="756000" />
+      <workItem from="1693846649499" duration="931000" />
+      <workItem from="1693999769209" duration="4304000" />
+      <workItem from="1694018152663" duration="1333000" />
+      <workItem from="1694028681138" duration="5350000" />
+      <workItem from="1695623754484" duration="382000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
