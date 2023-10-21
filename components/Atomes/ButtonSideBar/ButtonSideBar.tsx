@@ -1,3 +1,4 @@
+import useScreenSize from "@/hooks/useScreenSize";
 import { useTheme } from "@/hooks/useTheme";
 import { Colors } from "@/theme/DesignSystem/Colors";
 import Link from "next/link";
@@ -33,6 +34,8 @@ const ButtonSideBar: React.FC<ButtonSideBarProps> = ({
   };
 
   const { theme } = useTheme();
+
+  const isLargerThanLaptop = useScreenSize("laptop");
   return (
     <ButtonLink theme={theme} {...commonProps}>
       <WrapperIcon
@@ -49,7 +52,7 @@ const ButtonSideBar: React.FC<ButtonSideBarProps> = ({
       >
         {icon && icon}
       </WrapperIcon>
-      {label}
+      {isLargerThanLaptop && label}
     </ButtonLink>
   );
 };

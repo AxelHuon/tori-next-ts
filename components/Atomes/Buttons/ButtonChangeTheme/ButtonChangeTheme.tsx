@@ -1,3 +1,4 @@
+import useScreenSize from "@/hooks/useScreenSize";
 import { useTheme } from "@/hooks/useTheme";
 import { Colors } from "@/theme/DesignSystem/Colors";
 import MoonIcon from "@/theme/DesignSystem/Icons/MoonIcon";
@@ -62,6 +63,8 @@ const ActiveBackground = styled.div`
 `;
 
 const ButtonChangeTheme: React.FC = () => {
+  const isLargerThanLaptop = useScreenSize("laptop");
+
   const { theme, toggleTheme } = useTheme();
   return (
     <ButtonChangeThemeStyled>
@@ -73,7 +76,7 @@ const ButtonChangeTheme: React.FC = () => {
         >
           <SunIcon />
         </WrapperIcon>
-        <p>Light</p>
+        {isLargerThanLaptop && <p>Light</p>}
       </ButtonPart>
       <ButtonPart onClick={() => toggleTheme()} theme={theme} mode={"dark"}>
         <WrapperIcon
@@ -82,7 +85,7 @@ const ButtonChangeTheme: React.FC = () => {
         >
           <MoonIcon />
         </WrapperIcon>
-        <p>Dark</p>
+        {isLargerThanLaptop && <p>Dark</p>}
       </ButtonPart>
     </ButtonChangeThemeStyled>
   );

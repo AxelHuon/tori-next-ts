@@ -1,4 +1,5 @@
 import { Colors } from "@/theme/DesignSystem/Colors";
+import { device } from "@/utils/device";
 import { css } from "styled-components";
 
 import { ButtonSideBarProps } from "./ButtonSideBar";
@@ -7,10 +8,10 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 100%;
+  width: fit-content;
   box-sizing: border-box;
   text-decoration: none;
-  padding: 12px 20px 12px 10px;
+  padding: 12px 10px 12px 10px;
   border-radius: 10px;
   transition:
     background-color 0.2s cubic-bezier(0.45, 0.12, 0.15, 0.96),
@@ -31,4 +32,7 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
       : props.isActive
       ? Colors.GRAY_900
       : Colors.GRAY_400};
+  @media (${device.laptop}) {
+    width: 100%;
+  }
 `;
