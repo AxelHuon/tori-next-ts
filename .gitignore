@@ -36,5 +36,5 @@ next-env.d.ts
 
 
 # webstorm files
-/.idea
+/.idea/
 
