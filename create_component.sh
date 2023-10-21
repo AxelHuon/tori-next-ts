@@ -11,7 +11,7 @@ cd ${FILE_NAME}
 echo "import React from 'react';
 import styled from 'styled-components';
 import { ${FILE_NAME}BaseStyle } from './${FILE_NAME}.style';
-import useScreenSize from '../../utils/useScreenSize';
+import useScreenSize from '@/hooks/useScreenSize';
 
 export interface ${FILE_NAME}Props {
   name: string;

@@ -1,9 +1,9 @@
 "use client";
 import useScreenSize from "@/hooks/useScreenSize";
+import { Colors } from "@/theme/design_system/Colors";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { Colors } from "../../../theme/design_system/Colors";
 import { ButtonBaseStyle, ButtonSizeStyle } from "./Button.style";
 
 export interface ButtonLinkProps {
@@ -34,7 +34,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   href,
   width = "fit-content",
   bgcolor = Colors.PRIMARY,
-  color = Colors.WHITE,
+  color = Colors.GRAY_25,
   icon,
   rowreverse = false,
   size = "small",

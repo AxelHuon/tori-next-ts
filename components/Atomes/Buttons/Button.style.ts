@@ -1,5 +1,5 @@
+import { Colors } from "@/theme/design_system/Colors";
 import { css } from "styled-components";
-import { Colors } from "../../../theme/design_system/Colors";
 import { ButtonLinkProps } from "./ButtonLink";
 
 export const ButtonBaseStyle = css<ButtonLinkProps>`
@@ -11,7 +11,7 @@ export const ButtonBaseStyle = css<ButtonLinkProps>`
   width: ${(props) => props.width || "fit-content"};
   position: relative;
   background-color: ${(props) => props.bgcolor || Colors.PRIMARY};
-  color: ${(props) => props.color || Colors.WHITE};
+  color: ${(props) => props.color || Colors.GRAY_25};
   text-decoration: none;
   border-radius: 15px;
   font-size: 15px;
