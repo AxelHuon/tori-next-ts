@@ -36,7 +36,7 @@ export const Colors = {
   GRAY_500: "#808080",
   GRAY_600: "#666666",
   GRAY_700: "#4D4D4D",
-  GRAY_800: "#333333",
+  GRAY_800: "#242424",
   GRAY_900: "#1A1A1A",
 
   /* Reds */

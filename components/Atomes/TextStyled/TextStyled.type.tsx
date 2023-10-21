@@ -1,1 +1,1 @@
-export type TextStyledType = 'type1';
+export type TextStyledType = "Button14";

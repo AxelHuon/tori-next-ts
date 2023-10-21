@@ -1,31 +1,34 @@
-import React from 'react';
-import styled from 'styled-components';
-import { TextStyledBaseStyle } from './TextStyled.style';
-import useScreenSize from '@/hooks/useScreenSize';
+import React from "react";
+import styled from "styled-components";
+import { TextStyledBaseStyle, TextTypesStyles } from "./TextStyled.style";
+import { TextStyledType } from "./TextStyled.type";
 
 export interface TextStyledProps {
-  name: string;
+  children: React.ReactNode;
+  color?: string;
+  type: TextStyledType;
+  align?: "left" | "right" | "center";
 }
 
-const Container = styled.div<TextStyledProps>`
+const TextStyle = styled.div<TextStyledProps>`
   ${TextStyledBaseStyle}
+  ${({ type }) => TextTypesStyles[type as TextStyledType] || ""}
 `;
 
-const TextStyled: React.FC<TextStyledProps> = ({ name }) => {
-
+const TextStyled: React.FC<TextStyledProps> = ({
+  children,
+  color,
+  type,
+  align,
+}) => {
   const commonProps = {
-    name,
+    children,
+    color,
+    type,
+    align,
   };
 
-
-  const isLargerThanLaptop = useScreenSize('laptop');
-  const isLargerThanTablet = useScreenSize('tablet');
-
-  return (
-    <Container {...commonProps}>
-      {name}
-    </Container>
-  );
+  return <TextStyle {...commonProps}>{type}</TextStyle>;
 };
 
 export default TextStyled;
