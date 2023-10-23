@@ -18,18 +18,18 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
     color 0.2s cubic-bezier(0.45, 0.12, 0.15, 0.96);
   background-color: ${(props) =>
     props.theme.mode === "light"
-      ? props.isActive
+      ? props.active
         ? Colors.PRIMARY_25
         : "transparent"
-      : props.isActive
+      : props.active
       ? Colors.GRAY_25
       : "transparent"};
   color: ${(props) =>
     props.theme.mode === "light"
-      ? props.isActive
+      ? props.active
         ? Colors.PRIMARY
         : Colors.GRAY_400
-      : props.isActive
+      : props.active
       ? Colors.GRAY_900
       : Colors.GRAY_400};
   @media (${device.laptop}) {

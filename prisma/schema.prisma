@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Anime {
+  id             Int        @id @default(autoincrement())
+  title          String?
+  title_english  String?
+  title_japanese String?
+  type           String?
+  source         String?
+  episodes       Int?
+  status         String?
+  airing         Boolean?
+  airedFrom      DateTime?
+  airedTo        DateTime?
+  rating         String?
+  score          Float?
+  scored_by      Int?
+  rank           Int?
+  popularity     Int?
+  members        Int?
+  favorites      Int?
+  synopsis       String?    @db.Text
+  season         String?
+  year           Int?
+  images         Image?     @relation(fields: [imagesId], references: [id])
+  trailer        Trailer?   @relation(fields: [trailerId], references: [id])
+  producers      Producer[]
+  licensors      Licensor[]
+  studios        Studio[]
+  genres         Genre[]
+  imagesId       Int
+  trailerId      Int
+}
+
+model Image {
+  id             Int     @id @default(autoincrement())
+  jpg_image_url  String?
+  jpg_small_url  String?
+  jpg_large_url  String?
+  webp_image_url String?
+  webp_small_url String?
+  webp_large_url String?
+  anime          Anime[]
+}
+
+model Trailer {
+  id              Int     @id @default(autoincrement())
+  youtube_id      String?
+  url             String?
+  embed_url       String?
+  maximum_img_url String?
+  anime           Anime[]
+}
+
+model Producer {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  url   String
+  anime Anime[]
+}
+
+model Licensor {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  url   String
+  anime Anime[]
+}
+
+model Studio {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  url   String
+  anime Anime[]
+}
+
+model Genre {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  url   String
+  anime Anime[]
+}

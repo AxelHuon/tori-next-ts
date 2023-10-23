@@ -1,1 +1,1 @@
-export type TextStyledType = "Button14";
+export type TextStyledType = "Button14" | "Paragraph16Emphasized";

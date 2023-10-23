@@ -8,6 +8,7 @@ export type BreakPointType =
   | "laptopM"
   | "laptopL"
   | "laptopXL"
+  | "laptopXXL"
   | "desktop";
 
 export const size = {
@@ -18,8 +19,9 @@ export const size = {
   tabletL: "860px",
   laptop: "1024px",
   laptopM: "1264px",
-  laptopL: "1441px",
-  laptopXL: "1900px",
+  laptopL: "1440px",
+  laptopXL: "1660px",
+  laptopXXL: "1900px",
   desktop: "2560px",
 };
 
@@ -41,6 +43,7 @@ export const device = {
   laptopM: `(min-width: ${size.laptopM})`,
   laptopL: `(min-width: ${size.laptopL})`,
   laptopXL: `(min-width: ${size.laptopXL})`,
+  laptopXXL: `(min-width: ${size.laptopXXL})`,
   desktop: `(min-width: ${size.desktop})`,
   desktopL: `(min-width: ${size.desktop})`,
 };

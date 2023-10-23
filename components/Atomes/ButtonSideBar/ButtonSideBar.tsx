@@ -12,7 +12,7 @@ export interface ButtonSideBarProps {
   label: string;
   icon?: React.ReactNode;
   href: string;
-  isActive: boolean;
+  active: number;
 }
 
 const ButtonLink = styled(Link)<ButtonSideBarProps>`
@@ -24,13 +24,13 @@ const ButtonSideBar: React.FC<ButtonSideBarProps> = ({
   label,
   icon,
   href,
-  isActive,
+  active,
 }) => {
   const commonProps = {
     label,
     icon,
     href,
-    isActive,
+    active,
   };
 
   const { theme } = useTheme();
@@ -41,10 +41,10 @@ const ButtonSideBar: React.FC<ButtonSideBarProps> = ({
       <WrapperIcon
         color={
           theme.mode === "light"
-            ? isActive
+            ? active
               ? Colors.PRIMARY
               : Colors.GRAY_400
-            : isActive
+            : active
             ? Colors.GRAY_900
             : Colors.GRAY_400
         }

@@ -1,3 +1,4 @@
+import { Colors } from "@/theme/DesignSystem/Colors";
 import React from "react";
 import styled from "styled-components";
 import { TextStyledBaseStyle, TextTypesStyles } from "./TextStyled.style";
@@ -10,14 +11,14 @@ export interface TextStyledProps {
   align?: "left" | "right" | "center";
 }
 
-const TextStyle = styled.div<TextStyledProps>`
+const TextStyle = styled.p<TextStyledProps>`
   ${TextStyledBaseStyle}
   ${({ type }) => TextTypesStyles[type as TextStyledType] || ""}
 `;
 
 const TextStyled: React.FC<TextStyledProps> = ({
   children,
-  color,
+  color = Colors.GRAY_900,
   type,
   align,
 }) => {
@@ -28,7 +29,7 @@ const TextStyled: React.FC<TextStyledProps> = ({
     align,
   };
 
-  return <TextStyle {...commonProps}>{type}</TextStyle>;
+  return <TextStyle {...commonProps}>{children}</TextStyle>;
 };
 
 export default TextStyled;

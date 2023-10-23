@@ -26,6 +26,7 @@ const ButtonPart = styled.button<ButtonPartProps>`
   z-index: 10;
   width: 50%;
   display: flex;
+  cursor: pointer;
   gap: 10px;
   align-items: center;
   justify-content: center;

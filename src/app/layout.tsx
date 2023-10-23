@@ -1,17 +1,22 @@
 "use client";
 import "./global.css";
-import { Colors } from "@/theme/design_system/Colors";
-import { ThemeContextProvider } from "@/theme/design_system/ThemeContext";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "@/hooks/useTheme";
+import { device } from "@/utils/device";
+import { usePathname } from "next/navigation";
+import React from "react";
+import styled from "styled-components";
+import MainContainer from "../../layouts/MainContainer/MainContainer";
+import SideBar from "../../layouts/SideBar/SideBar";
 
-const PageMainContainer = styled.main`
-  background: ${Colors.GRAY_25};
-  min-height: 100vh;
+const ContainerContentPage = styled.article`
+  padding-top: 70px;
+  padding-bottom: 50px;
+  width: calc(100% - 120px - 16px);
   position: relative;
-  padding-inline: 35px;
-  display: flex;
-  gap: 35px;
-  flex-wrap: nowrap;
+  box-sizing: border-box;
+  @media (${device.laptop}) {
+    width: calc(100% - 240px - 64px);
+  }
 `;
 
 export default function RootLayout({
@@ -19,12 +24,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   return (
     <html lang="fr">
       <body>
-        <ThemeContextProvider>
-          <PageMainContainer></PageMainContainer>
-        </ThemeContextProvider>
+        <ThemeProvider>
+          <MainContainer>
+            <SideBar />
+            <ContainerContentPage>{children}</ContainerContentPage>
+          </MainContainer>
+        </ThemeProvider>
       </body>
     </html>
   );
