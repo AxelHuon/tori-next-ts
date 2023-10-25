@@ -46,7 +46,7 @@ const ContainerError = styled.div`
 `;
 
 const AnimListing: React.FC<AnimListingProps> = ({ animes, isloading, error }) => {
-  const refErrorContaianer = useRef<HTMLDivElement>(null);
+  const refErrorContaianer = useRef<>(null);
   const renderAnimes = () => {
     return (
       <ContainerListAnime>
