@@ -1,4 +1,17 @@
 #!/bin/sh
 
-yarn lint
+# Exécutez la commande de linting (dans votre cas, yarn lint)
+lint_errors=$(yarn lint 2>&1)
+
+# Vérifiez si des erreurs de linting ont été détectées
+if [ $? -ne 0 ]; then
+  echo "$lint_errors"  # Affichez les erreurs de linting dans la console
+  echo "Linting a échoué. Commit annulé."  # Message d'erreur
+  exit 1  # Code d'erreur pour annuler le commit
+fi
+
+# Si aucune erreur de linting n'a été détectée, ajoutez les fichiers au commit
 git add .
+
+# Si tout s'est bien passé, renvoyez un code de succès
+exit 0
