@@ -1,27 +1,27 @@
 -- CreateTable
 CREATE TABLE `Anime` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(191) NOT NULL,
-    `title_english` VARCHAR(191) NOT NULL,
-    `title_japanese` VARCHAR(191) NOT NULL,
-    `type` VARCHAR(191) NOT NULL,
-    `source` VARCHAR(191) NOT NULL,
-    `episodes` INTEGER NOT NULL,
-    `status` VARCHAR(191) NOT NULL,
-    `airing` BOOLEAN NOT NULL,
-    `aired_from` DATETIME(3) NOT NULL,
-    `aired_to` DATETIME(3) NOT NULL,
-    `rating` VARCHAR(191) NOT NULL,
-    `score` DOUBLE NOT NULL,
-    `scored_by` INTEGER NOT NULL,
-    `rank` INTEGER NOT NULL,
-    `popularity` INTEGER NOT NULL,
-    `members` INTEGER NOT NULL,
-    `favorites` INTEGER NOT NULL,
-    `synopsis` VARCHAR(191) NOT NULL,
-    `background` VARCHAR(191) NOT NULL,
-    `season` VARCHAR(191) NOT NULL,
-    `year` INTEGER NOT NULL,
+    `mal_id` INTEGER NOT NULL,
+    `title` VARCHAR(191) NULL,
+    `title_english` VARCHAR(191) NULL,
+    `title_japanese` VARCHAR(191) NULL,
+    `type` VARCHAR(191) NULL,
+    `source` VARCHAR(191) NULL,
+    `episodes` INTEGER NULL,
+    `status` VARCHAR(191) NULL,
+    `airing` BOOLEAN NULL,
+    `airedFrom` DATETIME(3) NULL,
+    `airedTo` DATETIME(3) NULL,
+    `rating` VARCHAR(191) NULL,
+    `score` DOUBLE NULL,
+    `scored_by` INTEGER NULL,
+    `rank` INTEGER NULL,
+    `popularity` INTEGER NULL,
+    `members` INTEGER NULL,
+    `favorites` INTEGER NULL,
+    `synopsis` TEXT NULL,
+    `season` VARCHAR(191) NULL,
+    `year` INTEGER NULL,
     `imagesId` INTEGER NOT NULL,
     `trailerId` INTEGER NOT NULL,
 
@@ -31,12 +31,12 @@ CREATE TABLE `Anime` (
 -- CreateTable
 CREATE TABLE `Image` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `jpg_image_url` VARCHAR(191) NOT NULL,
-    `jpg_small_url` VARCHAR(191) NOT NULL,
-    `jpg_large_url` VARCHAR(191) NOT NULL,
-    `webp_image_url` VARCHAR(191) NOT NULL,
-    `webp_small_url` VARCHAR(191) NOT NULL,
-    `webp_large_url` VARCHAR(191) NOT NULL,
+    `jpg_image_url` VARCHAR(191) NULL,
+    `jpg_small_url` VARCHAR(191) NULL,
+    `jpg_large_url` VARCHAR(191) NULL,
+    `webp_image_url` VARCHAR(191) NULL,
+    `webp_small_url` VARCHAR(191) NULL,
+    `webp_large_url` VARCHAR(191) NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -44,10 +44,10 @@ CREATE TABLE `Image` (
 -- CreateTable
 CREATE TABLE `Trailer` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `youtube_id` VARCHAR(191) NOT NULL,
-    `url` VARCHAR(191) NOT NULL,
-    `embed_url` VARCHAR(191) NOT NULL,
-    `maximum_img_url` VARCHAR(191) NOT NULL,
+    `youtube_id` VARCHAR(191) NULL,
+    `url` VARCHAR(191) NULL,
+    `embed_url` VARCHAR(191) NULL,
+    `maximum_img_url` VARCHAR(191) NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -55,40 +55,40 @@ CREATE TABLE `Trailer` (
 -- CreateTable
 CREATE TABLE `Producer` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
     `url` VARCHAR(191) NOT NULL,
 
+    UNIQUE INDEX `Producer_name_key`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
 CREATE TABLE `Licensor` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
     `url` VARCHAR(191) NOT NULL,
 
+    UNIQUE INDEX `Licensor_name_key`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
 CREATE TABLE `Studio` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
     `url` VARCHAR(191) NOT NULL,
 
+    UNIQUE INDEX `Studio_name_key`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
 CREATE TABLE `Genre` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `type` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
     `url` VARCHAR(191) NOT NULL,
 
+    UNIQUE INDEX `Genre_name_key`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

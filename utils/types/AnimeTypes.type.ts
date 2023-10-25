@@ -18,28 +18,7 @@ export interface TrailerType {
   anime: AnimeType[];
 }
 
-export interface ProducerType {
-  id: number;
-  name: string;
-  url: string;
-  anime: AnimeType[];
-}
-
-export interface LicensorType {
-  id: number;
-  name: string;
-  url: string;
-  anime: AnimeType[];
-}
-
-export interface StudioType {
-  id: number;
-  name: string;
-  url: string;
-  anime: AnimeType[];
-}
-
-export interface GenreType {
+export interface AnimeParamType {
   id: number;
   name: string;
   url: string;
@@ -48,6 +27,7 @@ export interface GenreType {
 
 export interface AnimeType {
   id: number;
+  mal_id: number;
   title?: string;
   title_english?: string;
   title_japanese?: string;
@@ -70,23 +50,18 @@ export interface AnimeType {
   year?: number;
   images: ImageType;
   trailer: TrailerType;
-  producers: ProducerType[];
-  licensors: LicensorType[];
-  studios: StudioType[];
-  genres: GenreType[];
+  producers: AnimeParamType[];
+  licensors: AnimeParamType[];
+  studios: AnimeParamType[];
+  genres: AnimeParamType[];
   imagesId: number;
   trailerId: number;
 }
 
-export interface PaginationType {
-  total: number;
-  currentPage: number;
-  totalPage: number;
-  hasNextPage: boolean;
-}
-
 export interface AnimeCollectionParamsType {
-  search?: string;
+  [key: string]: any;
+  page?: string;
+  search?: string | null;
   idProducers?: number;
   idLicensors?: number;
   idStudios?: number;
@@ -94,7 +69,9 @@ export interface AnimeCollectionParamsType {
   byPopularity?: string;
 }
 
-export interface ApiResponseAnimeCollectionType {
-  animes: AnimeType[];
-  pagination: PaginationType;
+export interface PaginationType {
+  currentPage: number;
+  hasNextPage: boolean;
+  total: number;
+  totalPage: number;
 }

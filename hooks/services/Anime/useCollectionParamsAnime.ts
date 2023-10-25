@@ -1,11 +1,20 @@
+import { AnimeParamType } from "@/utils/types/AnimeTypes.type";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { fetcherSingleItem } from "@/utils/fetcher";
-import { GenreType } from "../../../pages/api/apiResponseAnimeInterface";
 
-export const useCollectionParamsAnime = (params: string) => {
-  const [dataState, setDataState] = useState<GenreType[]>([]);
-  const { data, error } = useSWR(`/api/${params}`, fetcherSingleItem);
+interface ApiResponseAnimeParamType {
+  data: AnimeParamType[];
+}
+
+export const useCollectionParamsAnime = (
+  params: "studios" | "genres" | "producers" | "licensors",
+) => {
+  const [dataState, setDataState] = useState<AnimeParamType[]>([]);
+  const { data, error } = useSWR<ApiResponseAnimeParamType>(
+    `/api/${params}`,
+    fetcherSingleItem,
+  );
 
   useEffect(() => {
     if (data) {

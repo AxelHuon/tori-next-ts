@@ -1,14 +1,13 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
-  const id = req.query.id ? Number(req.query.id) : null;
-
-  if (id) {
+  const mal_id = req.query.id ? Number(req.query.id) : null;
+  if (mal_id) {
     try {
       const anime = await prisma.anime.findUnique({
-        where: { id: id },
+        where: { mal_id: mal_id },
         include: {
           images: true,
           trailer: true,
@@ -21,7 +20,7 @@ export default async (req, res) => {
       if (anime) {
         res.status(200).json({ anime });
       } else {
-        res.status(404).send("Anime not found");
+        res.status(404).send('Anime not found');
       }
     } catch (error) {
       res.status(500).send(error);
@@ -32,14 +31,10 @@ export default async (req, res) => {
     const page = Number(req.query.page) || 1;
     const resultsPerPage = 25;
     const skip = (page - 1) * resultsPerPage;
-    const search = req.query.search || "";
-    const byPopularity = req.query.byPopularity === "true";
-    const idProducers = req.query.idProducers
-      ? Number(req.query.idProducers)
-      : null;
-    const idLicensors = req.query.idLicensors
-      ? Number(req.query.idLicensors)
-      : null;
+    const search = req.query.search || '';
+    const byPopularity = req.query.byPopularity === 'true';
+    const idProducers = req.query.idProducers ? Number(req.query.idProducers) : null;
+    const idLicensors = req.query.idLicensors ? Number(req.query.idLicensors) : null;
     const idStudios = req.query.idStudios ? Number(req.query.idStudios) : null;
     const idGenres = req.query.idGenres ? Number(req.query.idGenres) : null;
 
@@ -47,7 +42,7 @@ export default async (req, res) => {
       const animes = await prisma.anime.findMany({
         take: resultsPerPage,
         skip,
-        orderBy: byPopularity ? { popularity: "asc" } : { id: "asc" },
+        orderBy: byPopularity ? { popularity: 'asc' } : { favorites: 'desc' },
         include: {
           images: true,
           trailer: true,

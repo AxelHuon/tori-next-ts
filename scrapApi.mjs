@@ -1,4 +1,3 @@
-/*
 import { PrismaClient } from "@prisma/client";
 import axios from "axios";
 
@@ -21,6 +20,7 @@ const upsertManyToManyRelation = async (entityName, data) => {
 const processPage = async (animeDataArray) => {
   for (const animeData of animeDataArray) {
     const {
+      mal_id,
       images,
       trailer,
       title,
@@ -48,6 +48,7 @@ const processPage = async (animeDataArray) => {
       genres,
     } = animeData;  // Obtenez les propriétés de chaque élément du tableau
     
+    
     const producersData = await upsertManyToManyRelation('producer', producers.map((producer) => ({
       name: producer.name,
       url: producer.url,
@@ -65,8 +66,9 @@ const processPage = async (animeDataArray) => {
       url: genre.url,
     })));
     
-    const [anime] = await prisma.[anime].create({
+    const anime = await prisma.anime.create({
       data: {
+        mal_id,
         title,
         title_english,
         title_japanese,
@@ -120,7 +122,7 @@ const processPage = async (animeDataArray) => {
       },
     });
     
-    console.log("Anime inserted successfully:", [anime]);
+    console.log("Anime inserted successfully:", anime);
   }
 };
 
@@ -137,7 +139,7 @@ const fetchAndInsertData = async () => {
       
       hasNextPage = pagination.has_next_page;
       page++;
-      await delay(10000);
+      await delay(5000);
       
     }
   } catch (error) {
@@ -146,4 +148,3 @@ const fetchAndInsertData = async () => {
 };
 
 fetchAndInsertData();
-*/

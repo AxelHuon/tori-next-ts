@@ -27,7 +27,7 @@ export const sideBarData: SideBarDataProps[] = [
   },
   {
     id: 3,
-    label: "Populaire",
+    label: "Trending",
     icon: TrendIcon,
     href: "/trending",
   },

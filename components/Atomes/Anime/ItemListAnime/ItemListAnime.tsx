@@ -1,132 +1,122 @@
-import { useTheme } from "@/hooks/useTheme";
-import { Colors } from "@/theme/DesignSystem/Colors";
-import Link from "next/link";
-import React, { useEffect, useRef } from "react";
-import Skeleton from "react-loading-skeleton";
-import styled, { keyframes } from "styled-components";
-import gsap from "gsap";
-import Image from "next/image";
-import { AnimeType } from "../../../../pages/api/apiResponseAnimeInterface";
-import TextStyled from "../../TextStyled/TextStyled";
+import { Colors } from '@/theme/DesignSystem/Colors';
+import { slugify } from '@/utils/text';
+import { AnimeType } from '@/utils/types/AnimeTypes.type';
+import gsap from 'gsap';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useRef } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import styled, { keyframes } from 'styled-components';
+import TextStyled from '../../TextStyled/TextStyled';
+
 interface ItemListAnimeProps {
-  isValidating: boolean;
-  animeItem: AnimeType;
+  anime: AnimeType;
+  isloading: boolean;
 }
 
-const apearItemList = keyframes`
-  from {
+const animationApear = keyframes`
+  from{
     transform: scale(0.6);
     opacity: 0;
   }
-
-  to {
+  to{
     transform: scale(1);
     opacity: 1;
   }
+  `;
+
+const ItemListAnimeStyle = styled.li`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: ${animationApear} 0.7s cubic-bezier(0.01, 0.46, 0.4, 0.99);
 `;
 
-const ItemList = styled.li<ItemListAnimeProps>`
-  animation: ${apearItemList} 0.6s cubic-bezier(0.45, 0.12, 0.15, 0.96);
-  position: relative;
+export const TitleContainer = styled.div`
+  opacity: 0;
+`;
+
+const ImageContainer = styled.div`
   width: 185px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
   a {
     width: 100%;
-    text-decoration: none;
+    position: absolute;
+    z-index: 999;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
-
   img {
-    border-radius: 7px;
-    width: 100%;
-    height: 300px;
     object-fit: cover;
+    border-radius: 10px;
   }
 `;
 
 const ContainerSkeleton = styled.div`
-  position: absolute;
-  height: 100% !important;
-  width: 100% !important;
-  z-index: 99;
-  top: 0;
-  left: 0;
-  opacity: 1;
+  width: 185px;
+  height: 300px;
   > span {
-    position: absolute;
     height: 100% !important;
-    width: 100% !important;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    > span {
-      height: 100% !important;
-      width: 100% !important;
-    }
   }
 `;
 
-const ContainerSkeletonImage = styled.div`
-  position: relative;
-  br {
-    display: none;
-  }
-`;
+const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime, isloading }) => {
+  const refSkeletonImage = useRef<HTMLDivElement>(null);
+  const refTitleAnime = useRef<HTMLDivElement>(null);
 
-const ItemListAnime: React.FC<ItemListAnimeProps> = ({
-  isValidating,
-  animeItem,
-}) => {
-  const skeletonContaineRef = useRef<HTMLDivElement>(null);
+  const handleImageLoad = () => {
+    gsap.to(refSkeletonImage.current, {
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+    gsap.to(refTitleAnime.current, {
+      opacity: 1,
+      duration: 0.4,
+      delay: 0.4,
+    });
+  };
 
-  useEffect(() => {
-    if (!isValidating) {
-      gsap.to(skeletonContaineRef.current, {
-        opacity: 0,
-        duration: 0.2,
-        delay: 0.5,
-      });
-    }
-  }, [isValidating]);
-
-  const { theme } = useTheme();
+  const slug = slugify(anime?.title || anime?.title_japanese || anime?.title_english || ' dsds');
 
   return (
-    <ItemList isValidating={isValidating} animeItem={animeItem}>
-      <Link href={`anime/${animeItem.id}`}>
-        <ContainerSkeletonImage>
-          <ContainerSkeleton ref={skeletonContaineRef}>
-            <Skeleton width={300} height={300} />
+    <ItemListAnimeStyle>
+      <Link href={`/anime/${slug}/${anime.mal_id}`}>
+        <ImageContainer>
+          {anime && (
+            <Image
+              onLoad={handleImageLoad}
+              sizes={'400px'}
+              priority={true}
+              src={
+                anime?.images?.webp_large_url ||
+                anime?.images?.webp_image_url ||
+                anime?.images?.webp_small_url ||
+                'default.png'
+              }
+              alt={anime.title || 'anime title'}
+              fill={true}
+            />
+          )}
+          <ContainerSkeleton ref={refSkeletonImage}>
+            <Skeleton
+              highlightColor={Colors.GRAY_25}
+              baseColor={Colors.GRAY_100}
+              width={185}
+              height={300}
+            />
           </ContainerSkeleton>
-          <Image
-            src={
-              animeItem?.images.webp_large_url
-                ? animeItem?.images.webp_large_url
-                  ? animeItem?.images.webp_large_url
-                  : animeItem?.images.webp_large_url
-                : ""
-            }
-            alt={animeItem?.title || "anime title"}
-            width={"300"}
-            height={"300"}
-          />
-        </ContainerSkeletonImage>
-        <TextStyled
-          type={"Paragraph16Emphasized"}
-          color={theme.mode === "light" ? Colors.GRAY_900 : Colors.GRAY_25}
-        >
-          {animeItem.title?.substring(0, 50)}
-          {animeItem.title
-            ? animeItem.title?.length > 50
-              ? "..."
-              : null
-            : null}
-        </TextStyled>
+        </ImageContainer>
       </Link>
-    </ItemList>
+      <TitleContainer ref={refTitleAnime}>
+        <TextStyled type={'Paragraph16Emphasized'} color={Colors.GRAY_25}>
+          {anime?.title}
+        </TextStyled>
+      </TitleContainer>
+    </ItemListAnimeStyle>
   );
 };
 
