@@ -1,7 +1,6 @@
 'use client';
 import { ThemeProvider } from '@/hooks/useTheme';
 import { device } from '@/utils/device';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 import styled from 'styled-components';
 import MainContainer from '../../layouts/MainContainer/MainContainer';
@@ -20,7 +19,6 @@ const ContainerContentPage = styled.article`
 `;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
   return (
     <html lang="fr">
       <body>
