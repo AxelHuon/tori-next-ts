@@ -22,7 +22,7 @@ const ContainerContentPage = styled.article`
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   return (
-    <html lang="fr">
+    <html lang="en">
       <body>
         <ThemeProvider>
           <MainContainer>
