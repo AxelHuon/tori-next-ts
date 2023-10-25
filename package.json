@@ -41,5 +41,9 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "tsc --noEmit --skipLibCheck",
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
   }
 }
