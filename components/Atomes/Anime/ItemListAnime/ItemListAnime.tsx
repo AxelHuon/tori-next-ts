@@ -11,7 +11,6 @@ import TextStyled from '../../TextStyled/TextStyled';
 
 interface ItemListAnimeProps {
   anime: AnimeType;
-  isloading: boolean;
 }
 
 const animationApear = keyframes`
@@ -63,7 +62,7 @@ const ContainerSkeleton = styled.div`
   }
 `;
 
-const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime, isloading }) => {
+const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
   const refSkeletonImage = useRef<HTMLDivElement>(null);
   const refTitleAnime = useRef<HTMLDivElement>(null);
 

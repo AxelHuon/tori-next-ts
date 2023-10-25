@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   const mal_id = req.query.id ? Number(req.query.id) : null;
   if (mal_id) {
     try {
@@ -101,3 +101,5 @@ export default async (req, res) => {
     }
   }
 };
+
+export default handler;

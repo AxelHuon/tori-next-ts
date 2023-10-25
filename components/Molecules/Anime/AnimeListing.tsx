@@ -51,7 +51,7 @@ const AnimListing: React.FC<AnimListingProps> = ({ animes, isloading, error }) =
     return (
       <ContainerListAnime>
         {animes.map((item, index) => {
-          return <ItemListAnime anime={item} key={index} isloading={isloading} />;
+          return <ItemListAnime anime={item} key={index} />;
         })}
       </ContainerListAnime>
     );
