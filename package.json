@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc && next lint"
+    "lint": "tsc && next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@prisma/client": "^5.4.2",
