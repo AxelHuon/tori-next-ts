@@ -14,12 +14,12 @@ const Catalogue: React.FC = () => {
   const { animes, setParams, incrementSize, resetData, isLoading, error, params } =
     useAnimeCollection(paramsState);
 
-  const { data: genres, error: errorGenres } = useCollectionParamsAnime('genres');
-  const { data: studios, error: errorStudios } = useCollectionParamsAnime('studios');
-  const { data: producers, error: errorProducers } = useCollectionParamsAnime('producers');
-  const { data: licensors, error: errorLicensors } = useCollectionParamsAnime('licensors');
+  const { data: genres } = useCollectionParamsAnime('genres');
+  const { data: studios } = useCollectionParamsAnime('studios');
+  const { data: producers } = useCollectionParamsAnime('producers');
+  const { data: licensors } = useCollectionParamsAnime('licensors');
 
-  window.onscroll = function (ev) {
+  window.onscroll = function () {
     if (window.innerHeight + Math.round(window.scrollY) >= document.body.offsetHeight) {
       incrementSize();
     }
