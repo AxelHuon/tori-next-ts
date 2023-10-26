@@ -1,4 +1,5 @@
 'use client';
+import { useSingleUser } from '@/hooks/services/Anime/useSingleUser';
 import useScreenSize from '@/hooks/useScreenSize';
 import { useTheme } from '@/hooks/useTheme';
 import { Colors } from '@/theme/DesignSystem/Colors';
@@ -105,6 +106,8 @@ const SideBar: React.FC = () => {
     }
   }, [session]);
 
+  const { user, error } = useSingleUser(session?.user?.email);
+
   return (
     <Container>
       <HeaderSideBar>
@@ -134,11 +137,11 @@ const SideBar: React.FC = () => {
               <ListItem>
                 <ButtonSideBar
                   label={session?.user?.name || 'Mon compte'}
-                  href={`/user/${encodedEmail}`}
+                  href={`/user/${user?.id}`}
                   imageSrc={
                     session?.user?.image ? session?.user?.image : '/images/user/default.png'
                   }
-                  userName={session?.user?.name || 'userName'}
+                  userName={user?.id || 'userid'}
                   active={pathname === '/moncompte' ? 1 : 0}
                 />
               </ListItem>

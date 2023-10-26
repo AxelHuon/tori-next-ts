@@ -4,11 +4,20 @@ import useSWR from 'swr';
 export interface ApiReponseSingleUser {
   user: UserType;
 }
-export const useSingleUser = (email: string) => {
-  const { data, error } = useSWR<ApiReponseSingleUser>(
-    `/api/users?email=${email}`,
-    fetcherSingleItem,
-  );
+
+export const useSingleUser = (
+  email?: string | null | undefined,
+  id?: string | null | undefined,
+) => {
+  let url = '/api/users?';
+
+  if (id) {
+    url += `id=${id}`;
+  } else if (email) {
+    url += `email=${email}`;
+  }
+
+  const { data, error } = useSWR<ApiReponseSingleUser>(url, fetcherSingleItem);
 
   return {
     user: data?.user,

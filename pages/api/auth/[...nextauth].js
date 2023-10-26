@@ -23,9 +23,7 @@ export const authOptions = {
   },*/
   theme: {
     colorScheme: 'dark', // "auto" | "dark" | "light"
-    brandColor: '#4334C8', // Hex color code
-    logo: '', // Absolute URL to image
-    buttonText: '#4334C8', // Hex color code
+    logo: '/images/logo/Logo-full.svg', // Absolute URL to image
   },
 };
 export default NextAuth(authOptions);
