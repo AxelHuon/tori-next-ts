@@ -13,7 +13,7 @@ const PageSingleAnime: React.FC<SingleAnimePageProps> = ({ params }) => {
   return (
     <>
       {error && error.message}
-      <TextStyled type={'Paragraph16Emphasized'} color={Colors.GRAY_25}>
+      <TextStyled type={'TitleH1Mini'} color={Colors.GRAY_25}>
         {anime?.title}
       </TextStyled>
     </>

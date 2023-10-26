@@ -13,12 +13,12 @@ export const fetcherCollection = async (args: any) => {
   try {
     const response = await axios.get(url, { params });
     if (response.data.animes.length === 0) {
-      throw new Error('Rien ne correspond à votre recherche');
+      throw new Error('Rien ne correspond à votre recherche...');
     } else {
       return response.data;
     }
   } catch (error: any) {
-    if (error.message === 'Rien ne correspond à votre recherche') {
+    if (error.message === 'Rien ne correspond à votre recherche...') {
       throw new CustomError(error.message, 404);
     } else if (error.request) {
       if (error.request.status === 404) {

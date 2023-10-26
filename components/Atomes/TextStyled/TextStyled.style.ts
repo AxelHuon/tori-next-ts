@@ -10,6 +10,18 @@ export const TextStyledBaseStyle = css<TextStyledProps>`
 `;
 
 export const TextTypesStyles = {
+  TitleH1: css`
+    font-size: 60px;
+    font-family: 'Mont Blanc', serif;
+    font-weight: 800;
+    line-height: 80px;
+  `,
+  TitleH1Mini: css`
+    font-size: 40px;
+    font-family: 'Mont Blanc', serif;
+    font-weight: 800;
+    line-height: 80px;
+  `,
   Button14: css`
     font-size: 14px;
     font-family: 'Mont Blanc', serif;
