@@ -1,6 +1,9 @@
+import { Colors } from '@/theme/DesignSystem/Colors';
+import ArrowDownIcon from '@/theme/DesignSystem/Icons/ArrowDownIcon';
 import { AnimeParamType } from '@/utils/types/AnimeTypes.type';
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
+import WrapperIcon from '../WrapperIcon/WrapperIcon';
 import { SelectBaseStyle } from './Select.style';
 
 export interface SelectProps {
@@ -15,6 +18,17 @@ const SelectStyled = styled.select<SelectProps>`
   ${SelectBaseStyle}
 `;
 
+const ContainerSelect = styled.div`
+  position: relative;
+  width: 100%;
+  > div {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+`;
+
 const Select: React.FC<SelectProps> = ({ label, data, value = 0, onChange, name }) => {
   const commonProps = {
     label,
@@ -23,17 +37,34 @@ const Select: React.FC<SelectProps> = ({ label, data, value = 0, onChange, name 
     onChange,
     name,
   };
+
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+
+  const handleFocus = () => {
+    console.log('focus');
+    setIsFocused(true);
+  };
+  const handleBlur = () => {
+    console.log('blur');
+    setIsFocused(false);
+  };
+
   return (
-    <SelectStyled {...commonProps}>
-      <option value={0}>All</option>
-      {data.map((item) => {
-        return (
-          <option key={item.id} value={item.id}>
-            {item.name}
-          </option>
-        );
-      })}
-    </SelectStyled>
+    <ContainerSelect>
+      <WrapperIcon width={'20px'} color={isFocused ? Colors.PRIMARY : Colors.GRAY_400}>
+        <ArrowDownIcon />
+      </WrapperIcon>
+      <SelectStyled onBlur={() => handleBlur()} onFocus={() => handleFocus()} {...commonProps}>
+        <option value={0}>All</option>
+        {data.map((item) => {
+          return (
+            <option key={item.id} value={item.id}>
+              {item.name}
+            </option>
+          );
+        })}
+      </SelectStyled>
+    </ContainerSelect>
   );
 };
 
