@@ -94,13 +94,13 @@ export const useAnimeCollection = (initialParams: AnimeCollectionParamsType) => 
     isLoading,
     animes,
     error,
-    params,
+    paramsRequest: params,
     size,
     pagination: paginationState,
     setSize,
     incrementSize,
     isValidating,
-    setParams,
+    setParamsRequest: setParams,
     resetData,
   };
 };

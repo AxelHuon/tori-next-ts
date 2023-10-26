@@ -66,7 +66,7 @@ export interface AnimeCollectionParamsType {
   idLicensors?: number;
   idStudios?: number;
   idGenres?: number;
-  byPopularity?: string;
+  byPopularity?: 'true' | 'false';
 }
 
 export interface PaginationType {

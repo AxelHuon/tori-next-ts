@@ -8,7 +8,7 @@ import FilterBar from '../../../components/Molecules/FilterBar/FilterBar';
 
 const Catalogue: React.FC = () => {
   const [paramsState, setParamsState] = useState<AnimeCollectionParamsType>({
-    byPopularity: 'false',
+    byPopularity: 'true',
   });
 
   const { animes, setParamsRequest, incrementSize, resetData, paramsRequest, isLoading, error } =

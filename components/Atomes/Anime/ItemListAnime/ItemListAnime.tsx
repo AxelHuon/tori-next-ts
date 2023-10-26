@@ -1,3 +1,4 @@
+import { useTheme } from '@/hooks/useTheme';
 import { Colors } from '@/theme/DesignSystem/Colors';
 import { slugify } from '@/utils/text';
 import { AnimeType } from '@/utils/types/AnimeTypes.type';
@@ -81,6 +82,8 @@ const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
 
   const slug = slugify(anime?.title || anime?.title_japanese || anime?.title_english || ' dsds');
 
+  const { theme } = useTheme();
+
   return (
     <ItemListAnimeStyle>
       <Link href={`/anime/${slug}/${anime.mal_id}`}>
@@ -111,7 +114,10 @@ const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
         </ImageContainer>
       </Link>
       <TitleContainer ref={refTitleAnime}>
-        <TextStyled type={'Paragraph16Emphasized'} color={Colors.GRAY_25}>
+        <TextStyled
+          type={'Paragraph16Emphasized'}
+          color={theme.mode === 'light' ? Colors.GRAY_900 : Colors.GRAY_25}
+        >
           {anime?.title}
         </TextStyled>
       </TitleContainer>
