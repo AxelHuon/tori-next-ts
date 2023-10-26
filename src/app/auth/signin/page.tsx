@@ -1,11 +1,9 @@
 'use client';
 import React from 'react';
 
-interface LoginProps {
-  params: any;
-}
+interface LoginProps {}
 
-const Page: React.FC<LoginProps> = ({ params }) => {
+const Page: React.FC<LoginProps> = ({}) => {
   return <></>;
 };
 

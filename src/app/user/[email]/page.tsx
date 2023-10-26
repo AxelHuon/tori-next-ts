@@ -13,7 +13,7 @@ const UserPage: React.FC<UserPageProps> = ({ params }) => {
     if (params.email) {
       setEmail(decodeURIComponent(params.email));
     }
-  }, [email]);
+  }, [params.email]);
 
   const { user, error } = useSingleUser(params.email);
 
