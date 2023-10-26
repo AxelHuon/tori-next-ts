@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../../prisma/client';
 
 const handler = async (req, res) => {
   const mal_id = req.query.id ? Number(req.query.id) : null;

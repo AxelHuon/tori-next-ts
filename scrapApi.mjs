@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import axios from "axios";
+import prisma from "prisma/client";
 
-const prisma = new PrismaClient();
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const upsertManyToManyRelation = async (entityName, data) => {

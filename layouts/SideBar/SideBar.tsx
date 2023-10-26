@@ -1,16 +1,18 @@
-import useScreenSize from "@/hooks/useScreenSize";
-import { useTheme } from "@/hooks/useTheme";
-import { Colors } from "@/theme/DesignSystem/Colors";
-import LoginIcon from "@/theme/DesignSystem/Icons/LoginIcon";
-import FullLogo from "@/theme/DesignSystem/Logos/FullLogo";
-import LittleLogo from "@/theme/DesignSystem/Logos/LittleLogo";
-import { sideBarData } from "@/utils/data/sideBarData";
-import { device } from "@/utils/device";
-import { usePathname } from "next/navigation";
-import React from "react";
-import styled from "styled-components";
-import ButtonChangeTheme from "../../components/Atomes/Buttons/ButtonChangeTheme/ButtonChangeTheme";
-import ButtonSideBar from "../../components/Atomes/ButtonSideBar/ButtonSideBar";
+'use client';
+import useScreenSize from '@/hooks/useScreenSize';
+import { useTheme } from '@/hooks/useTheme';
+import { Colors } from '@/theme/DesignSystem/Colors';
+import LoginIcon from '@/theme/DesignSystem/Icons/LoginIcon';
+import FullLogo from '@/theme/DesignSystem/Logos/FullLogo';
+import LittleLogo from '@/theme/DesignSystem/Logos/LittleLogo';
+import { sideBarData } from '@/utils/data/sideBarData';
+import { device } from '@/utils/device';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import ButtonChangeTheme from '../../components/Atomes/Buttons/ButtonChangeTheme/ButtonChangeTheme';
+import ButtonSideBar from '../../components/Atomes/ButtonSideBar/ButtonSideBar';
 
 const Container = styled.aside`
   height: 100vh;
@@ -27,7 +29,6 @@ const Container = styled.aside`
   box-sizing: border-box;
   @media (${device.laptop}) {
     width: 300px;
-    left: 22px;
   }
 `;
 
@@ -46,8 +47,7 @@ const ContainerLogo = styled.div`
   justify-content: center;
   padding-block: 30px;
   border-bottom: 2px solid
-    ${(props) =>
-      props.theme.mode === "light" ? Colors.PRIMARY_25 : Colors.GRAY_700};
+    ${(props) => (props.theme.mode === 'light' ? Colors.PRIMARY_25 : Colors.GRAY_700)};
 `;
 
 const ListItem = styled.li`
@@ -84,17 +84,27 @@ const ContainerListFooter = styled.ul`
   gap: 10px;
   padding-top: 20px;
   border-top: 2px solid
-    ${(props) =>
-      props.theme.mode === "light" ? Colors.PRIMARY_25 : Colors.GRAY_700};
+    ${(props) => (props.theme.mode === 'light' ? Colors.PRIMARY_25 : Colors.GRAY_700)};
   @media (${device.laptop}) {
     width: 100%;
   }
 `;
 
 const SideBar: React.FC = () => {
-  const isLargerThanLaptop = useScreenSize("laptop");
+  const isLargerThanLaptop = useScreenSize('laptop');
   const { theme } = useTheme();
   const pathname = usePathname();
+
+  const { data: session } = useSession();
+
+  const [encodedEmail, setEncodedEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (session && session?.user?.email) {
+      setEncodedEmail(encodeURIComponent(session?.user?.email));
+    }
+  }, [session]);
+
   return (
     <Container>
       <HeaderSideBar>
@@ -119,14 +129,34 @@ const SideBar: React.FC = () => {
       <FooterSideBar>
         <ButtonChangeTheme />
         <ContainerListFooter theme={theme}>
-          <ListItem>
-            <ButtonSideBar
-              label={"Connexion"}
-              href={"/login"}
-              active={pathname === "/login" ? 1 : 0}
-              icon={<LoginIcon />}
-            />
-          </ListItem>
+          {session ? (
+            <>
+              <ListItem>
+                <ButtonSideBar
+                  label={session?.user?.name || 'Mon compte'}
+                  href={`/user/${encodedEmail}`}
+                  imageSrc={
+                    session?.user?.image ? session?.user?.image : '/images/user/default.png'
+                  }
+                  userName={session?.user?.name || 'userName'}
+                  active={pathname === '/moncompte' ? 1 : 0}
+                />
+              </ListItem>
+              <ListItem>
+                <ButtonSideBar
+                  label={'Déconnexion'}
+                  color={Colors.RED_900}
+                  bgcolor={Colors.RED_100}
+                  onClick={() => signOut()}
+                  icon={<LoginIcon />}
+                />
+              </ListItem>
+            </>
+          ) : (
+            <ListItem>
+              <ButtonSideBar label={'Connexion'} onClick={() => signIn()} icon={<LoginIcon />} />
+            </ListItem>
+          )}
         </ContainerListFooter>
       </FooterSideBar>
     </Container>
