@@ -1,9 +1,8 @@
-import CatalogueIcon from "@/theme/DesignSystem/Icons/CatalogueIcon";
-import GroupsIcon from "@/theme/DesignSystem/Icons/GroupsIcon";
-import SearchIcon from "@/theme/DesignSystem/Icons/SearchIcon";
-import TrendIcon from "@/theme/DesignSystem/Icons/TrendIcon";
-import React, { FC, FunctionComponent } from "react";
-import HomeIcon from "@/theme/DesignSystem/Icons/HomeIcon";
+import CatalogueIcon from '@/theme/DesignSystem/Icons/CatalogueIcon';
+import GroupsIcon from '@/theme/DesignSystem/Icons/GroupsIcon';
+import HomeIcon from '@/theme/DesignSystem/Icons/HomeIcon';
+import TrendIcon from '@/theme/DesignSystem/Icons/TrendIcon';
+import { FunctionComponent } from 'react';
 
 interface SideBarDataProps {
   id: number;
@@ -15,32 +14,26 @@ interface SideBarDataProps {
 export const sideBarData: SideBarDataProps[] = [
   {
     id: 1,
-    label: "Accueil",
+    label: 'Accueil',
     icon: HomeIcon,
-    href: "/",
+    href: '/',
   },
   {
     id: 2,
-    label: "Catalogue",
+    label: 'Catalogue',
     icon: CatalogueIcon,
-    href: "/catalogue",
+    href: '/catalogue',
   },
   {
     id: 3,
-    label: "Trending",
+    label: 'Trending',
     icon: TrendIcon,
-    href: "/trending",
+    href: '/trending',
   },
   {
     id: 4,
-    label: "Mes groupes",
+    label: 'Mes groupes',
     icon: GroupsIcon,
-    href: "/my-groups",
-  },
-  {
-    id: 5,
-    label: "Rechercher",
-    icon: SearchIcon,
-    href: "/search",
+    href: '/my-groups',
   },
 ];

@@ -1,6 +1,7 @@
 'use client';
 import { ThemeProvider } from '@/hooks/useTheme';
 import { device } from '@/utils/device';
+import { SessionProvider } from 'next-auth/react';
 import React from 'react';
 import styled from 'styled-components';
 import MainContainer from '../../layouts/MainContainer/MainContainer';
@@ -23,10 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr">
       <body>
         <ThemeProvider>
-          <MainContainer>
-            <SideBar />
-            <ContainerContentPage>{children}</ContainerContentPage>
-          </MainContainer>
+          <SessionProvider>
+            <MainContainer>
+              <SideBar />
+              <ContainerContentPage>{children}</ContainerContentPage>
+            </MainContainer>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>
