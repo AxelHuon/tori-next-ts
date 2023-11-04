@@ -38,3 +38,8 @@ next-env.d.ts
 # webstorm files
 /.idea/
 
+
+
+node_modules
+# Keep environment variables out of version control
+.env
