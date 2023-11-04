@@ -4,7 +4,6 @@ import { slugify } from '@/utils/text';
 import { AnimeType } from '@/utils/types/AnimeTypes.type';
 import gsap from 'gsap';
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useRef } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import styled, { keyframes } from 'styled-components';
@@ -26,11 +25,19 @@ const animationApear = keyframes`
   `;
 
 const ItemListAnimeStyle = styled.li`
+  cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   animation: ${animationApear} 0.7s cubic-bezier(0.01, 0.46, 0.4, 0.99);
+  &:hover {
+    > div {
+      p {
+        color: ${Colors.PRIMARY_300};
+      }
+    }
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -63,9 +70,47 @@ const ContainerSkeleton = styled.div`
   }
 `;
 
+const CustomLink = styled.a`
+  text-decoration: none;
+  position: relative;
+  > div {
+    transition: all 0.2s cubic-bezier(0.45, 0.12, 0.15, 0.96);
+  }
+  &:hover {
+    > div {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+  }
+`;
+
+const ContainerMoreInformation = styled.div`
+  position: absolute;
+  transform: scale(0.8);
+  filter: blur(5px);
+  min-height: 10vh;
+  width: 250px;
+  z-index: 999;
+  background-color: white;
+  top: 10%;
+  right: calc(-220px);
+  opacity: 0;
+  padding: 1em;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 2px solid ${Colors.GRAY_100};
+`;
+
+const ContainerStudios = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
   const refSkeletonImage = useRef<HTMLDivElement>(null);
   const refTitleAnime = useRef<HTMLDivElement>(null);
+  const imgRef = useRef(null);
 
   const handleImageLoad = () => {
     gsap.to(refSkeletonImage.current, {
@@ -85,11 +130,12 @@ const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
   const { theme } = useTheme();
 
   return (
-    <ItemListAnimeStyle>
-      <Link href={`/anime/${slug}/${anime.mal_id}`}>
+    <CustomLink href={`/anime/${slug}/${anime.mal_id} `}>
+      <ItemListAnimeStyle>
         <ImageContainer>
           {anime && (
             <Image
+              ref={imgRef}
               onLoad={handleImageLoad}
               sizes={'400px'}
               priority={true}
@@ -112,16 +158,28 @@ const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
             />
           </ContainerSkeleton>
         </ImageContainer>
-      </Link>
-      <TitleContainer ref={refTitleAnime}>
-        <TextStyled
-          type={'Paragraph16Emphasized'}
-          color={theme.mode === 'light' ? Colors.GRAY_900 : Colors.GRAY_25}
-        >
-          {anime?.title}
-        </TextStyled>
-      </TitleContainer>
-    </ItemListAnimeStyle>
+        <TitleContainer ref={refTitleAnime}>
+          <TextStyled
+            type={'Paragraph16Emphasized'}
+            color={theme.mode === 'light' ? Colors.GRAY_900 : Colors.GRAY_25}
+          >
+            {anime?.title}
+          </TextStyled>
+        </TitleContainer>
+      </ItemListAnimeStyle>
+      <ContainerMoreInformation>
+        <ContainerStudios>
+          {anime.studios.map((item) => {
+            return <div key={item.id}>{item.name}</div>;
+          })}
+        </ContainerStudios>
+        <ContainerStudios>
+          {anime.genres.map((item) => {
+            return <div key={item.id}>{item.name}</div>;
+          })}
+        </ContainerStudios>
+      </ContainerMoreInformation>
+    </CustomLink>
   );
 };
 

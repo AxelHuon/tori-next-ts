@@ -5,13 +5,12 @@ import { TextTypesStyles } from '../TextStyled/TextStyled.style';
 import { SelectProps } from './Select';
 
 export const SelectBaseStyle = css<SelectProps>`
-  padding: 5px 10px;
+  padding: 8px 10px;
   box-sizing: border-box;
   width: 100%;
   border-radius: 5px;
   transition: border 0.2s ease-in-out;
   border: 2px solid ${Colors.GRAY_400};
-  min-height: 38px;
   -webkit-appearance: none; /* Remove default arrow for Safari */
   -moz-appearance: none; /* Remove default arrow for Firefox */
   appearance: none; /* Remove default arrow for other browsers */

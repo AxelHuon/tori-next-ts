@@ -8,8 +8,7 @@ interface UserPageProps {
 
 const UserPage: React.FC<UserPageProps> = ({ params }) => {
   const { user, error } = useSingleUser(null, params.id);
-
-  return <div>{user?.id}</div>;
+  return <div>{user?.emailVerified}</div>;
 };
 
 export default UserPage;

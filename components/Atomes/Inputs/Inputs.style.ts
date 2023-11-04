@@ -4,7 +4,7 @@ import { TextTypesStyles } from '../TextStyled/TextStyled.style';
 import { InputsProps } from './Input';
 
 export const InputsBaseStyle = css<InputsProps>`
-  padding: 5px 10px;
+  padding: 8px 10px;
   border-radius: 5px;
   transition: border 0.2s ease-in-out;
   border: 2px solid ${Colors.GRAY_400};
