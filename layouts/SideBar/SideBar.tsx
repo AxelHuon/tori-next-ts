@@ -157,7 +157,11 @@ const SideBar: React.FC = () => {
             </>
           ) : (
             <ListItem>
-              <ButtonSideBar label={'Connexion'} onClick={() => signIn()} icon={<LoginIcon />} />
+              <ButtonSideBar
+                label={'Connexion'}
+                onClick={() => signIn('discord')}
+                icon={<LoginIcon />}
+              />
             </ListItem>
           )}
         </ContainerListFooter>
