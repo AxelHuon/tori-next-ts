@@ -34,7 +34,7 @@ const ItemListAnimeStyle = styled.li`
   &:hover {
     > div {
       p {
-        color: ${Colors.PRIMARY_300};
+        color: ${Colors.PRIMARY};
       }
     }
   }
@@ -47,7 +47,7 @@ export const TitleContainer = styled.div`
 const ImageContainer = styled.div`
   width: 185px;
   height: 300px;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
   a {
@@ -76,36 +76,6 @@ const CustomLink = styled.a`
   > div {
     transition: all 0.2s cubic-bezier(0.45, 0.12, 0.15, 0.96);
   }
-  &:hover {
-    > div {
-      opacity: 1;
-      transform: scale(1);
-      filter: blur(0);
-    }
-  }
-`;
-
-const ContainerMoreInformation = styled.div`
-  position: absolute;
-  transform: scale(0.8);
-  filter: blur(5px);
-  min-height: 10vh;
-  width: 250px;
-  z-index: 999;
-  background-color: white;
-  top: 10%;
-  right: calc(-220px);
-  opacity: 0;
-  padding: 1em;
-  box-sizing: border-box;
-  border-radius: 8px;
-  border: 2px solid ${Colors.GRAY_100};
-`;
-
-const ContainerStudios = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 `;
 const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
   const refSkeletonImage = useRef<HTMLDivElement>(null);
@@ -167,18 +137,6 @@ const ItemListAnime: React.FC<ItemListAnimeProps> = ({ anime }) => {
           </TextStyled>
         </TitleContainer>
       </ItemListAnimeStyle>
-      <ContainerMoreInformation>
-        <ContainerStudios>
-          {anime.studios.map((item) => {
-            return <div key={item.id}>{item.name}</div>;
-          })}
-        </ContainerStudios>
-        <ContainerStudios>
-          {anime.genres.map((item) => {
-            return <div key={item.id}>{item.name}</div>;
-          })}
-        </ContainerStudios>
-      </ContainerMoreInformation>
     </CustomLink>
   );
 };

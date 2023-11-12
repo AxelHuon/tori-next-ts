@@ -52,10 +52,7 @@ const ContainerLogo = styled.div`
 `;
 
 const ListItem = styled.li`
-  width: fit-content;
-  @media (${device.laptop}) {
-    width: 100%;
-  }
+  width: 100%;
 `;
 
 const FooterSideBar = styled.footer`
@@ -67,18 +64,15 @@ const FooterSideBar = styled.footer`
 `;
 
 const ContainerList = styled.ul`
-  width: fit-content;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  @media (${device.laptop}) {
-    width: 100%;
-  }
 `;
 
 const ContainerListFooter = styled.ul`
-  width: fit-content;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,9 +80,6 @@ const ContainerListFooter = styled.ul`
   padding-top: 20px;
   border-top: 2px solid
     ${(props) => (props.theme.mode === 'light' ? Colors.PRIMARY_25 : Colors.GRAY_700)};
-  @media (${device.laptop}) {
-    width: 100%;
-  }
 `;
 
 const SideBar: React.FC = () => {

@@ -1,15 +1,15 @@
-import { useTheme } from "@/hooks/useTheme";
-import React from "react";
+import { useTheme } from '@/hooks/useTheme';
+import React from 'react';
 
 const LittleLogo: React.FC = () => {
   const { theme } = useTheme();
 
   return (
     <>
-      {theme.mode === "light" ? (
+      {theme.mode === 'light' ? (
         <svg
-          height={"33px"}
-          width={"49px"}
+          height={'33px'}
+          width={'49px'}
           viewBox="0 0 50 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +26,8 @@ const LittleLogo: React.FC = () => {
         </svg>
       ) : (
         <svg
-          width="50"
-          height="34"
+          height={'33px'}
+          width={'49px'}
           viewBox="0 0 50 34"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
