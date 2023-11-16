@@ -141,6 +141,8 @@ model User {
   groups        Group[]   @relation("UserGroups")
   Group         Group?    @relation(fields: [groupId], references: [id])
   groupId       Int?
+  firstName     String?
+  lastName      String?
 }
 
 model VerificationToken {
