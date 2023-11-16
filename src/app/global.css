@@ -56,7 +56,7 @@ table {
 
 /* MontBlanc - Black */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'Mont Blanc Black';
     src: url('../../public/fonts/MontBlanc-Trial-Black.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-Black.woff') format('woff');
     font-weight: 900;
@@ -65,7 +65,7 @@ table {
 
 /* MontBlanc - Black Italic */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Black Italic';
     src: url('../../public/fonts/MontBlanc-Trial-BlackItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-BlackItalic.woff') format('woff');
     font-weight: 900;
@@ -74,7 +74,7 @@ table {
 
 /* MontBlanc - Bold */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Bold';
     src: url('../../public/fonts/MontBlanc-Trial-Bold.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-Bold.woff') format('woff');
     font-weight: 700;
@@ -83,7 +83,7 @@ table {
 
 /* MontBlanc - Bold Italic */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Bold Italic';
     src: url('../../public/fonts/MontBlanc-Trial-BoldItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-BoldItalic.woff') format('woff');
     font-weight: 700;
@@ -92,7 +92,7 @@ table {
 
 /* MontBlanc - ExtraBold */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc ExtraBold';
     src: url('../../public/fonts/MontBlanc-Trial-ExtraBold.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-ExtraBold.woff') format('woff');
     font-weight: 800;
@@ -101,7 +101,7 @@ table {
 
 /* MontBlanc - ExtraBold Italic */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc ExtraBold Italic';
     src: url('../../public/fonts/MontBlanc-Trial-ExtraBoldItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-ExtraBoldItalic.woff') format('woff');
     font-weight: 800;
@@ -110,7 +110,7 @@ table {
 
 /* MontBlanc - ExtraLight */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc ExtraLight';
     src: url('../../public/fonts/MontBlanc-Trial-ExtraLight.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-ExtraLight.woff') format('woff');
     font-weight: 200;
@@ -119,7 +119,7 @@ table {
 
 /* MontBlanc - ExtraLight Italic */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc ExtraLight Italic';
     src: url('../../public/fonts/MontBlanc-Trial-ExtraLightItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-ExtraLightItalic.woff') format('woff');
     font-weight: 200;
@@ -128,7 +128,7 @@ table {
 
 /* MontBlanc - Light */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Light';
     src: url('../../public/fonts/MontBlanc-Trial-Light.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-Light.woff') format('woff');
     font-weight: 300;
@@ -137,7 +137,7 @@ table {
 
 /* MontBlanc - Light Italic */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Light Italic';
     src: url('../../public/fonts/MontBlanc-Trial-LightItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-LightItalic.woff') format('woff');
     font-weight: 300;
@@ -146,7 +146,7 @@ table {
 
 /* MontBlanc - Regular */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Regular';
     src: url('../../public/fonts/MontBlanc-Trial-Regular.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-Regular.woff') format('woff');
     font-weight: 400;
@@ -155,7 +155,7 @@ table {
 
 /* MontBlanc - Regular Italic */
 @font-face {
-    font-family: 'MontBlanc';
+    font-family: 'MontBlanc Regular Italic';
     src: url('../../public/fonts/MontBlanc-Trial-RegularItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-RegularItalic.woff') format('woff');
     font-weight: 400;
