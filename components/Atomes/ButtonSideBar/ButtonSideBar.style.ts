@@ -19,7 +19,7 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
   &:hover {
     background-color: ${(props) =>
       props.label === 'Déconnexion'
-        ? Colors.RED_200
+        ? 'rgba(255,0,0,0.1)'
         : props.theme.mode === 'dark'
         ? props.active
           ? ''
@@ -35,7 +35,9 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
     background-color 0.2s cubic-bezier(0.45, 0.12, 0.15, 0.96),
     color 0.2s cubic-bezier(0.45, 0.12, 0.15, 0.96);
   background-color: ${(props) =>
-    props.bgcolor
+    props.label === 'Déconnexion'
+      ? 'transparent'
+      : props.bgcolor
       ? props.bgcolor
       : props.theme.mode === 'light'
       ? props.active
