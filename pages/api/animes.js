@@ -53,9 +53,24 @@ const handler = async (req, res) => {
           ...(search
             ? {
                 OR: [
-                  { title: { contains: search } },
-                  { title_english: { contains: search } },
-                  { title_japanese: { contains: search } },
+                  {
+                    title: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
+                  {
+                    title_english: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
+                  {
+                    title_japanese: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
                 ],
               }
             : {}),
@@ -70,9 +85,24 @@ const handler = async (req, res) => {
           ...(search
             ? {
                 OR: [
-                  { title: { contains: search } },
-                  { title_english: { contains: search } },
-                  { title_japanese: { contains: search } },
+                  {
+                    title: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
+                  {
+                    title_english: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
+                  {
+                    title_japanese: {
+                      contains: search,
+                      mode: 'insensitive',
+                    },
+                  },
                 ],
               }
             : {}),
