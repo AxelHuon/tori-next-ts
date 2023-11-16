@@ -48,3 +48,118 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/*fonts*/
+
+
+
+
+/* MontBlanc - Black */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-Black.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* MontBlanc - Black Italic */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-BlackItalic.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* MontBlanc - Bold */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-Bold.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* MontBlanc - Bold Italic */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-BoldItalic.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* MontBlanc - ExtraBold */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-ExtraBold.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* MontBlanc - ExtraBold Italic */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-ExtraBoldItalic.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+/* MontBlanc - ExtraLight */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-ExtraLight.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* MontBlanc - ExtraLight Italic */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-ExtraLightItalic.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}
+
+/* MontBlanc - Light */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-Light.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* MontBlanc - Light Italic */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-LightItalic.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* MontBlanc - Regular */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-Regular.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* MontBlanc - Regular Italic */
+@font-face {
+    font-family: 'MontBlanc';
+    src: url('../../public/fonts/MontBlanc-Trial-RegularItalic.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-RegularItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* MontBlanc - SemiBold */
