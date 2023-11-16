@@ -10,14 +10,17 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
   align-items: center;
   cursor: pointer;
   gap: 10px;
-  width: fit-content;
+  width: 100%;
   box-sizing: border-box;
   text-decoration: none;
+  justify-content: center;
   padding: 12px 10px 12px 10px;
   border-radius: 10px;
   &:hover {
     background-color: ${(props) =>
-      props.theme.mode === 'dark'
+      props.label === 'Déconnexion'
+        ? Colors.RED_200
+        : props.theme.mode === 'dark'
         ? props.active
           ? ''
           : 'rgba(255, 255, 255, 0.1);'
@@ -52,6 +55,6 @@ export const ButtonSideBarBaseStyle = css<ButtonSideBarProps>`
       ? Colors.GRAY_900
       : Colors.GRAY_400};
   @media (${device.laptop}) {
-    width: 100%;
+    justify-content: flex-start;
   }
 `;
