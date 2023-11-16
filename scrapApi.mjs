@@ -18,6 +18,7 @@ const upsertManyToManyRelation = async (entityName, data) => {
 };
 
 const processPage = async (animeDataArray) => {
+  
   for (const animeData of animeDataArray) {
     const {
       mal_id,
