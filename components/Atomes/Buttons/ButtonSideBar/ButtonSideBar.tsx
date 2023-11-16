@@ -5,8 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import { TextTypesStyles } from '../TextStyled/TextStyled.style';
-import WrapperIcon from '../WrapperIcon/WrapperIcon';
+import { TextTypesStyles } from '../../TextStyled/TextStyled.style';
+import WrapperIcon from '../../WrapperIcon/WrapperIcon';
 import { ButtonSideBarBaseStyle } from './ButtonSideBar.style';
 
 export interface ButtonSideBarProps {
