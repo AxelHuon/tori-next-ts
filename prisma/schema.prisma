@@ -21,7 +21,7 @@ model Group {
 
 model Anime {
   id             Int        @id @default(autoincrement())
-  mal_id         Int
+  mal_id         Int        @unique
   title          String?
   title_english  String?
   title_japanese String?

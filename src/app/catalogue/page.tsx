@@ -3,8 +3,12 @@ import { useAnimeCollection } from '@/hooks/services/Anime/useAnimeCollection';
 import { AnimeCollectionParamsType } from '@/utils/types/AnimeTypes.type';
 import React, { useState } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
+import styled from 'styled-components';
+import Loader from '../../../components/Atomes/Loader/Loader';
 import AnimeListing from '../../../components/Molecules/Anime/AnimeListing';
 import FilterBar from '../../../components/Molecules/FilterBar/FilterBar';
+
+const ContainerLoader = styled.div``;
 
 const Catalogue: React.FC = () => {
   const [paramsState, setParamsState] = useState<AnimeCollectionParamsType>({
@@ -30,6 +34,11 @@ const Catalogue: React.FC = () => {
         paramsState={paramsState}
       />
       <AnimeListing error={error} isloading={isLoading} animes={animes} />
+      {isLoading && (
+        <ContainerLoader>
+          <Loader />
+        </ContainerLoader>
+      )}
     </>
   );
 };
