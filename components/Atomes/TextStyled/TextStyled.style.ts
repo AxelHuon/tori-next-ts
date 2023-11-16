@@ -27,7 +27,7 @@ export const TextTypesStyles = {
   `,
   Paragraph16Emphasized: css`
     font-size: 16px;
-    font-family: 'MontBlanc Bold', serif;
+    font-family: 'MontBlanc Semi Bold', serif;
     line-height: 24px;
   `,
   Paragraph14Regular: css`

@@ -163,3 +163,11 @@ table {
 }
 
 /* MontBlanc - SemiBold */
+@font-face {
+    font-family: 'MontBlanc Semi Bold';
+    src: url('../../public/fonts/MontBlanc-Trial-SemiBold.woff2') format('woff2'),
+    url('../../public/fonts/MontBlanc-Trial-SemiBold.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
