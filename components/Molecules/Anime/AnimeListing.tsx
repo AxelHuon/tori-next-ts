@@ -23,7 +23,7 @@ const ContainerListAnime = styled.ul`
   grid-template-columns: repeat(auto-fill, 185px);
   justify-content: space-between;
   padding-top: 50px;
-  padding-bottom: 300px;
+  padding-bottom: 50px;
 `;
 
 const ContainerAll = styled.div<AnimListingProps>`
@@ -42,7 +42,6 @@ const ContainerError = styled.div`
   flex-direction: column;
   gap: 10px;
   filter: blur(5px);
-  height: 100%;
 `;
 
 const AnimListing: React.FC<AnimListingProps> = ({ animes, isloading, error }) => {
