@@ -13,7 +13,7 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ButtonChangeTheme from '../../components/Atomes/Buttons/ButtonChangeTheme/ButtonChangeTheme';
-import ButtonSideBar from '../../components/Atomes/ButtonSideBar/ButtonSideBar';
+import ButtonSideBar from '../../components/Atomes/Buttons/ButtonSideBar/ButtonSideBar';
 
 const Container = styled.aside`
   height: 100vh;
