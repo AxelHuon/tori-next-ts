@@ -1,0 +1,10 @@
+# Rust
+/target
+
+# Editor
+/.idea
+/.vscode
+
+# Nix
+/result
+/.direnv

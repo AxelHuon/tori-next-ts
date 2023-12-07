@@ -12,27 +12,27 @@ export const TextStyledBaseStyle = css<TextStyledProps>`
 export const TextTypesStyles = {
   TitleH1: css`
     font-size: 60px;
-    font-family: 'MontBlanc Bold', serif;
+    font-family: 'MontBlanc Bold';
     line-height: 80px;
   `,
   TitleH1Mini: css`
     font-size: 40px;
-    font-family: 'MontBlanc Bold', serif;
+    font-family: 'MontBlanc Bold';
     line-height: 80px;
   `,
   Button14: css`
     font-size: 14px;
-    font-family: 'MontBlanc Semi Bold', serif;
+    font-family: 'MontBlanc Semi Bold';
     line-height: 22px;
   `,
   Paragraph16Emphasized: css`
     font-size: 16px;
-    font-family: 'MontBlanc Semi Bold', serif;
+    font-family: 'MontBlanc Semi Bold';
     line-height: 24px;
   `,
   Paragraph14Regular: css`
     font-size: 14px;
-    font-family: 'MontBlanc Regular', serif;
+    font-family: 'MontBlanc Regular';
     line-height: 24px;
   `,
 };

@@ -1,4 +1,3 @@
-'use client';
 import { useSingleUser } from '@/hooks/services/Anime/useSingleUser';
 import useScreenSize from '@/hooks/useScreenSize';
 import { useTheme } from '@/hooks/useTheme';
@@ -89,14 +88,6 @@ const SideBar: React.FC = () => {
 
   const { data: session } = useSession();
 
-  const [encodedEmail, setEncodedEmail] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (session && session?.user?.email) {
-      setEncodedEmail(encodeURIComponent(session?.user?.email));
-    }
-  }, [session]);
-
   const { user, error } = useSingleUser(session?.user?.email);
 
   return (
@@ -123,7 +114,7 @@ const SideBar: React.FC = () => {
       <FooterSideBar>
         <ButtonChangeTheme />
         <ContainerListFooter theme={theme}>
-          {session ? (
+          {session && user ? (
             <>
               <ListItem>
                 <ButtonSideBar

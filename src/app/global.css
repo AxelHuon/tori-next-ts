@@ -4,6 +4,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@charset "UTF-8";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -56,7 +57,7 @@ table {
 
 /* MontBlanc - Black */
 @font-face {
-    font-family: 'Mont Blanc Black';
+    font-family: 'Mont Blanc Black', sans-serif;
     src: url('../../public/fonts/MontBlanc-Trial-Black.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-Black.woff') format('woff');
     font-weight: 900;
@@ -65,7 +66,7 @@ table {
 
 /* MontBlanc - Black Italic */
 @font-face {
-    font-family: 'MontBlanc Black Italic';
+    font-family: 'MontBlanc Black Italic',sans-serif;
     src: url('../../public/fonts/MontBlanc-Trial-BlackItalic.woff2') format('woff2'),
     url('../../public/fonts/MontBlanc-Trial-BlackItalic.woff') format('woff');
     font-weight: 900;
@@ -170,4 +171,3 @@ table {
     font-weight: 400;
     font-style: italic;
 }
-
