@@ -1,9 +1,0 @@
-# Rust
-
-# Editor
-/.idea
-/.vscode
-
-# Nix
-/result
-/.direnv
