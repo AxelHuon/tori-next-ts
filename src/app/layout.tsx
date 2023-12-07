@@ -3,10 +3,12 @@ import { ThemeProvider } from '@/hooks/useTheme';
 import { device } from '@/utils/device';
 import { SessionProvider } from 'next-auth/react';
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 import MainContainer from '../../layouts/MainContainer/MainContainer';
 import SideBar from '../../layouts/SideBar/SideBar';
 import './global.css';
+import Head from 'next/head';
 
 const ContainerContentPage = styled.article`
   padding-top: 70px;
@@ -22,12 +24,16 @@ const ContainerContentPage = styled.article`
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <body>
         <ThemeProvider>
           <SessionProvider>
             <MainContainer>
               <SideBar />
               <ContainerContentPage>{children}</ContainerContentPage>
+              <Toaster />
             </MainContainer>
           </SessionProvider>
         </ThemeProvider>

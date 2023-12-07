@@ -15,6 +15,11 @@ export const useSingleUser = (
     url += `id=${id}`;
   } else if (email) {
     url += `email=${email}`;
+  }else{
+    return {
+      user:null,
+      error:null
+    }
   }
 
   const { data, error } = useSWR<ApiReponseSingleUser>(url, fetcherSingleItem);

@@ -20,7 +20,7 @@ export const sideBarData: SideBarDataProps[] = [
   },
   {
     id: 2,
-    label: 'Catalogue',
+    label: 'Catalogué',
     icon: CatalogueIcon,
     href: '/catalogue',
   },
