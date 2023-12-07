@@ -9,9 +9,9 @@ const uploadFileToFTP = async (localPath:string, title:string) => {
   const client = new Client();
   try {
     await client.access({
-      host: 'ftp.huax3940.odns.fr',
-      user: 'toir-next-app@huax3940.odns.fr',
-      password: 'Qsder415@',
+      host: process.env.HOSTFTP,
+      user: process.env.HOSTUSER,
+      password: process.env.HOSTPASSWORD,
       secure: false
     });
     await client.uploadFrom(localPath, `tori-app.huax3940.odns.fr/videos/${title}.mp4`);
