@@ -1,0 +1,3 @@
+cargo:rustc-env=GIT_HASH=38d9af4
+
+cargo:rustc-env=BUILD_DATE=2023-12-06

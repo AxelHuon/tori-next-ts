@@ -1,0 +1,11 @@
+/Users/axelhuon/Lab/tori-next-app/.bin/crunchy-cli/target/debug/deps/serde_plain-e6473d3b797f483b.rmeta: /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/lib.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/de.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/error.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/macros.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/ser.rs
+
+/Users/axelhuon/Lab/tori-next-app/.bin/crunchy-cli/target/debug/deps/libserde_plain-e6473d3b797f483b.rlib: /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/lib.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/de.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/error.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/macros.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/ser.rs
+
+/Users/axelhuon/Lab/tori-next-app/.bin/crunchy-cli/target/debug/deps/serde_plain-e6473d3b797f483b.d: /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/lib.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/de.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/error.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/macros.rs /Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/ser.rs
+
+/Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/lib.rs:
+/Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/de.rs:
+/Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/error.rs:
+/Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/macros.rs:
+/Users/axelhuon/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serde_plain-1.0.2/src/ser.rs:
