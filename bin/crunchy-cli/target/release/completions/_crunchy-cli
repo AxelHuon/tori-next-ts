@@ -1,0 +1,286 @@
+#compdef crunchy-cli
+
+autoload -U is-at-least
+
+_crunchy-cli() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'--lang=[Overwrite the language in which results are returned. Default is your system language]:LANG: ' \
+'--credentials=[Login with credentials (username or email and password). Must be provided as user\:password]:CREDENTIALS: ' \
+'--etp-rt=[Login with the etp-rt cookie]:ETP_RT: ' \
+'--proxy=[Use a proxy to route all traffic through]:PROXY: ' \
+'--user-agent=[Use custom user agent]:USER_AGENT: ' \
+'-v[Verbose output]' \
+'--verbose[Verbose output]' \
+'-q[Quiet output. Does not print anything unless it'\''s a error]' \
+'--quiet[Quiet output. Does not print anything unless it'\''s a error]' \
+'--experimental-fixes[Enable experimental fixes which may resolve some unexpected errors]' \
+'--anonymous[Login anonymously / without an account]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_crunchy-cli_commands" \
+"*::: :->crunchy-cli" \
+&& ret=0
+    case $state in
+    (crunchy-cli)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:crunchy-cli-command-$line[1]:"
+        case $line[1] in
+            (archive)
+_arguments "${_arguments_options[@]}" \
+'*-a+[Audio languages. Can be used multiple times. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:AUDIO: ' \
+'*--audio=[Audio languages. Can be used multiple times. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:AUDIO: ' \
+'*-s+[Subtitle languages. Can be used multiple times. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:SUBTITLE: ' \
+'*--subtitle=[Subtitle languages. Can be used multiple times. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:SUBTITLE: ' \
+'-o+[Name of the output file]:OUTPUT: ' \
+'--output=[Name of the output file]:OUTPUT: ' \
+'--output-specials=[Name of the output file if the episode is a special]:OUTPUT_SPECIALS: ' \
+'-r+[Video resolution]:RESOLUTION: ' \
+'--resolution=[Video resolution]:RESOLUTION: ' \
+'-m+[Sets the behavior of the stream merging. Valid behaviors are '\''auto'\'', '\''audio'\'' and '\''video'\'']:MERGE: ' \
+'--merge=[Sets the behavior of the stream merging. Valid behaviors are '\''auto'\'', '\''audio'\'' and '\''video'\'']:MERGE: ' \
+'--ffmpeg-preset=[Presets for converting the video to a specific coding format. Available presets\: 
+  h264 (h264 encoded with default video quality/compression)
+  h264-nvidia (h264 encoded with nvidia hardware acceleration)
+  h264-apple (h264 encoded with apple hardware acceleration)
+  h264-lossless (h264 encoded with lossless video quality/compression)
+  h264-normal (h264 encoded with normal video quality/compression)
+  h264-low (h264 encoded with low video quality/compression)
+  h264-nvidia-lossless (h264 encoded with nvidia hardware acceleration and lossless video quality/compression)
+  h264-nvidia-normal (h264 encoded with nvidia hardware acceleration and normal video quality/compression)
+  h264-nvidia-low (h264 encoded with nvidia hardware acceleration and low video quality/compression)
+  h264-apple-lossless (h264 encoded with apple hardware acceleration and lossless video quality/compression)
+  h264-apple-normal (h264 encoded with apple hardware acceleration and normal video quality/compression)
+  h264-apple-low (h264 encoded with apple hardware acceleration and low video quality/compression)
+  h265 (h265 encoded with default video quality/compression)
+  h265-nvidia (h265 encoded with nvidia hardware acceleration)
+  h265-apple (h265 encoded with apple hardware acceleration)
+  h265-lossless (h265 encoded with lossless video quality/compression)
+  h265-normal (h265 encoded with normal video quality/compression)
+  h265-low (h265 encoded with low video quality/compression)
+  h265-nvidia-lossless (h265 encoded with nvidia hardware acceleration and lossless video quality/compression)
+  h265-nvidia-normal (h265 encoded with nvidia hardware acceleration and normal video quality/compression)
+  h265-nvidia-low (h265 encoded with nvidia hardware acceleration and low video quality/compression)
+  h265-apple-lossless (h265 encoded with apple hardware acceleration and lossless video quality/compression)
+  h265-apple-normal (h265 encoded with apple hardware acceleration and normal video quality/compression)
+  h265-apple-low (h265 encoded with apple hardware acceleration and low video quality/compression)
+  av1 (av1 encoded with default video quality/compression)
+  av1-lossless (av1 encoded with lossless video quality/compression)
+  av1-normal (av1 encoded with normal video quality/compression)
+  av1-low (av1 encoded with low video quality/compression)]:FFMPEG_PRESET: ' \
+'--default-subtitle=[Set which subtitle language should be set as default / auto shown when starting a video]:DEFAULT_SUBTITLE: ' \
+'-t+[The number of threads used to download]:THREADS: ' \
+'--threads=[The number of threads used to download]:THREADS: ' \
+'--skip-existing[Skip files which are already existing]' \
+'--skip-specials[Skip special episodes]' \
+'-y[Skip any interactive input]' \
+'--yes[Skip any interactive input]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::urls -- Crunchyroll series url(s):' \
+&& ret=0
+;;
+(download)
+_arguments "${_arguments_options[@]}" \
+'-a+[Audio language. Can only be used if the provided url(s) point to a series. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:AUDIO: ' \
+'--audio=[Audio language. Can only be used if the provided url(s) point to a series. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:AUDIO: ' \
+'-s+[Subtitle language. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:SUBTITLE: ' \
+'--subtitle=[Subtitle language. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:SUBTITLE: ' \
+'-o+[Name of the output file]:OUTPUT: ' \
+'--output=[Name of the output file]:OUTPUT: ' \
+'--output-specials=[Name of the output file if the episode is a special]:OUTPUT_SPECIALS: ' \
+'-r+[Video resolution]:RESOLUTION: ' \
+'--resolution=[Video resolution]:RESOLUTION: ' \
+'--ffmpeg-preset=[Presets for converting the video to a specific coding format. Available presets\: 
+  h264 (h264 encoded with default video quality/compression)
+  h264-nvidia (h264 encoded with nvidia hardware acceleration)
+  h264-apple (h264 encoded with apple hardware acceleration)
+  h264-lossless (h264 encoded with lossless video quality/compression)
+  h264-normal (h264 encoded with normal video quality/compression)
+  h264-low (h264 encoded with low video quality/compression)
+  h264-nvidia-lossless (h264 encoded with nvidia hardware acceleration and lossless video quality/compression)
+  h264-nvidia-normal (h264 encoded with nvidia hardware acceleration and normal video quality/compression)
+  h264-nvidia-low (h264 encoded with nvidia hardware acceleration and low video quality/compression)
+  h264-apple-lossless (h264 encoded with apple hardware acceleration and lossless video quality/compression)
+  h264-apple-normal (h264 encoded with apple hardware acceleration and normal video quality/compression)
+  h264-apple-low (h264 encoded with apple hardware acceleration and low video quality/compression)
+  h265 (h265 encoded with default video quality/compression)
+  h265-nvidia (h265 encoded with nvidia hardware acceleration)
+  h265-apple (h265 encoded with apple hardware acceleration)
+  h265-lossless (h265 encoded with lossless video quality/compression)
+  h265-normal (h265 encoded with normal video quality/compression)
+  h265-low (h265 encoded with low video quality/compression)
+  h265-nvidia-lossless (h265 encoded with nvidia hardware acceleration and lossless video quality/compression)
+  h265-nvidia-normal (h265 encoded with nvidia hardware acceleration and normal video quality/compression)
+  h265-nvidia-low (h265 encoded with nvidia hardware acceleration and low video quality/compression)
+  h265-apple-lossless (h265 encoded with apple hardware acceleration and lossless video quality/compression)
+  h265-apple-normal (h265 encoded with apple hardware acceleration and normal video quality/compression)
+  h265-apple-low (h265 encoded with apple hardware acceleration and low video quality/compression)
+  av1 (av1 encoded with default video quality/compression)
+  av1-lossless (av1 encoded with lossless video quality/compression)
+  av1-normal (av1 encoded with normal video quality/compression)
+  av1-low (av1 encoded with low video quality/compression)]:FFMPEG_PRESET: ' \
+'-t+[The number of threads used to download]:THREADS: ' \
+'--threads=[The number of threads used to download]:THREADS: ' \
+'--skip-existing[Skip files which are already existing]' \
+'--skip-specials[Skip special episodes]' \
+'-y[Skip any interactive input]' \
+'--yes[Skip any interactive input]' \
+'--force-hardsub[Force subtitles to be always burnt-in]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::urls -- Url(s) to Crunchyroll episodes or series:' \
+&& ret=0
+;;
+(login)
+_arguments "${_arguments_options[@]}" \
+'--credentials=[Login with credentials (username or email and password). Must be provided as user\:password]:CREDENTIALS: ' \
+'--etp-rt=[Login with the etp-rt cookie]:ETP_RT: ' \
+'--anonymous[Login anonymously / without an account]' \
+'--remove[Remove your stored credentials (instead of saving them)]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(search)
+_arguments "${_arguments_options[@]}" \
+'*--audio=[Audio languages to include. Available languages are\: ar-ME, ar-SA, de-DE, en-IN, en-US, es-419, es-ES, es-LA, fr-FR, hi-IN, it-IT, ja-JP, pt-BR, pt-PT, ru-RU, ta-IN, zh-CN]:AUDIO: ' \
+'--search-top-results-limit=[Limit of search top search results]:SEARCH_TOP_RESULTS_LIMIT: ' \
+'--search-series-limit=[Limit of search series results]:SEARCH_SERIES_LIMIT: ' \
+'--search-movie-listing-limit=[Limit of search movie listing results]:SEARCH_MOVIE_LISTING_LIMIT: ' \
+'--search-episode-limit=[Limit of search episode results]:SEARCH_EPISODE_LIMIT: ' \
+'--search-music-limit=[Limit of search music results]:SEARCH_MUSIC_LIMIT: ' \
+'-o+[Format of the output text.]:OUTPUT: ' \
+'--output=[Format of the output text.]:OUTPUT: ' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+':input:' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_crunchy-cli__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:crunchy-cli-help-command-$line[1]:"
+        case $line[1] in
+            (archive)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(download)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(login)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(search)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_crunchy-cli_commands] )) ||
+_crunchy-cli_commands() {
+    local commands; commands=(
+'archive:Archive a video' \
+'download:Download a video' \
+'login:Save your login credentials persistent on disk' \
+'search:Search in videos' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'crunchy-cli commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__archive_commands] )) ||
+_crunchy-cli__archive_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli archive commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__help__archive_commands] )) ||
+_crunchy-cli__help__archive_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli help archive commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__download_commands] )) ||
+_crunchy-cli__download_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli download commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__help__download_commands] )) ||
+_crunchy-cli__help__download_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli help download commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__help_commands] )) ||
+_crunchy-cli__help_commands() {
+    local commands; commands=(
+'archive:Archive a video' \
+'download:Download a video' \
+'login:Save your login credentials persistent on disk' \
+'search:Search in videos' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'crunchy-cli help commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__help__help_commands] )) ||
+_crunchy-cli__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli help help commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__help__login_commands] )) ||
+_crunchy-cli__help__login_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli help login commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__login_commands] )) ||
+_crunchy-cli__login_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli login commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__help__search_commands] )) ||
+_crunchy-cli__help__search_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli help search commands' commands "$@"
+}
+(( $+functions[_crunchy-cli__search_commands] )) ||
+_crunchy-cli__search_commands() {
+    local commands; commands=()
+    _describe -t commands 'crunchy-cli search commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_crunchy-cli" ]; then
+    _crunchy-cli "$@"
+else
+    compdef _crunchy-cli crunchy-cli
+fi

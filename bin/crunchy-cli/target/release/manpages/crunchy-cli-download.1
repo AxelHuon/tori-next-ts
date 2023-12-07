@@ -1,0 +1,107 @@
+.ie \n(.g .ds Aq \(aq
+.el .ds Aq '
+.TH crunchy-cli-download 1 "Dec 06, 2023" "crunchy-cli download " 
+.SH NAME
+crunchy\-cli download \- Download a video
+.SH SYNOPSIS
+\fBcrunchy\-cli download\fR [\fB\-a\fR|\fB\-\-audio\fR] [\fB\-s\fR|\fB\-\-subtitle\fR] [\fB\-o\fR|\fB\-\-output\fR] [\fB\-\-output\-specials\fR] [\fB\-r\fR|\fB\-\-resolution\fR] [\fB\-\-ffmpeg\-preset\fR] [\fB\-\-skip\-existing\fR] [\fB\-\-skip\-specials\fR] [\fB\-y\fR|\fB\-\-yes\fR] [\fB\-\-force\-hardsub\fR] [\fB\-t\fR|\fB\-\-threads\fR] [\fB\-h\fR|\fB\-\-help\fR] <\fIURLS\fR> 
+.SH DESCRIPTION
+Download a video
+.SH OPTIONS
+.TP
+\fB\-a\fR, \fB\-\-audio\fR=\fIAUDIO\fR [default: fr\-FR]
+Audio language. Can only be used if the provided url(s) point to a series. Available languages are:
+  ar\-ME  → Arabic
+  ar\-SA  → Arabic (Saudi Arabia)
+  de\-DE  → German
+  en\-IN  → English (India)
+  en\-US  → English (US)
+  es\-419 → Spanish (Latin America)
+  es\-ES  → Spanish (European)
+  es\-LA  → Spanish (Latin America)
+  fr\-FR  → French
+  hi\-IN  → Hindi
+  it\-IT  → Italian
+  ja\-JP  → Japanese
+  pt\-BR  → Portuguese (Brazil)
+  pt\-PT  → Portuguese (Europe)
+  ru\-RU  → Russian
+  ta\-IN  → Tamil
+  zh\-CN  → Chinese (China)
+.TP
+\fB\-s\fR, \fB\-\-subtitle\fR=\fISUBTITLE\fR
+Subtitle language. If set, the subtitle will be burned into the video and cannot be disabled. Available languages are: ar\-ME, ar\-SA, de\-DE, en\-IN, en\-US, es\-419, es\-ES, es\-LA, fr\-FR, hi\-IN, it\-IT, ja\-JP, pt\-BR, pt\-PT, ru\-RU, ta\-IN, zh\-CN
+.TP
+\fB\-o\fR, \fB\-\-output\fR=\fIOUTPUT\fR [default: {title}.mp4]
+Name of the output file. If you use one of the following pattern they will get replaced:
+  {title}                    → Title of the video
+  {series_name}              → Name of the series
+  {season_name}              → Name of the season
+  {audio}                    → Audio language of the video
+  {resolution}               → Resolution of the video
+  {season_number}            → Number of the season
+  {episode_number}           → Number of the episode
+  {relative_episode_number}  → Number of the episode relative to its season
+  {sequence_number}          → Like \*(Aq{episode_number}\*(Aq but without possible non\-number characters
+  {relative_sequence_number} → Like \*(Aq{relative_episode_number}\*(Aq but with support for episode 0\*(Aqs and .5\*(Aqs
+  {series_id}                → ID of the series
+  {season_id}                → ID of the season
+  {episode_id}               → ID of the episode
+.TP
+\fB\-\-output\-specials\fR=\fIOUTPUT_SPECIALS\fR
+Name of the output file if the episode is a special. If not set, the \*(Aq\-o\*(Aq/\*(Aq\-\-output\*(Aq flag will be used as name template
+.TP
+\fB\-r\fR, \fB\-\-resolution\fR=\fIRESOLUTION\fR [default: best]
+The video resolution.Can either be specified via the pixels (e.g. 1920x1080), the abbreviation for pixels (e.g. 1080p) or \*(Aqcommon\-use\*(Aq words (e.g. best). Specifying the exact pixels is not recommended, use one of the other options instead. Crunchyroll let you choose the quality with pixel abbreviation on their clients, so you might be already familiar with the available options. The available common\-use words are \*(Aqbest\*(Aq (choose the best resolution available) and \*(Aqworst\*(Aq (worst resolution available)
+.TP
+\fB\-\-ffmpeg\-preset\fR=\fIFFMPEG_PRESET\fR
+Presets for converting the video to a specific coding format. If you need more specific ffmpeg customizations you can pass ffmpeg output arguments instead of a preset as value. Available presets: 
+  h264 (h264 encoded with default video quality/compression)
+  h264\-nvidia (h264 encoded with nvidia hardware acceleration)
+  h264\-apple (h264 encoded with apple hardware acceleration)
+  h264\-lossless (h264 encoded with lossless video quality/compression)
+  h264\-normal (h264 encoded with normal video quality/compression)
+  h264\-low (h264 encoded with low video quality/compression)
+  h264\-nvidia\-lossless (h264 encoded with nvidia hardware acceleration and lossless video quality/compression)
+  h264\-nvidia\-normal (h264 encoded with nvidia hardware acceleration and normal video quality/compression)
+  h264\-nvidia\-low (h264 encoded with nvidia hardware acceleration and low video quality/compression)
+  h264\-apple\-lossless (h264 encoded with apple hardware acceleration and lossless video quality/compression)
+  h264\-apple\-normal (h264 encoded with apple hardware acceleration and normal video quality/compression)
+  h264\-apple\-low (h264 encoded with apple hardware acceleration and low video quality/compression)
+  h265 (h265 encoded with default video quality/compression)
+  h265\-nvidia (h265 encoded with nvidia hardware acceleration)
+  h265\-apple (h265 encoded with apple hardware acceleration)
+  h265\-lossless (h265 encoded with lossless video quality/compression)
+  h265\-normal (h265 encoded with normal video quality/compression)
+  h265\-low (h265 encoded with low video quality/compression)
+  h265\-nvidia\-lossless (h265 encoded with nvidia hardware acceleration and lossless video quality/compression)
+  h265\-nvidia\-normal (h265 encoded with nvidia hardware acceleration and normal video quality/compression)
+  h265\-nvidia\-low (h265 encoded with nvidia hardware acceleration and low video quality/compression)
+  h265\-apple\-lossless (h265 encoded with apple hardware acceleration and lossless video quality/compression)
+  h265\-apple\-normal (h265 encoded with apple hardware acceleration and normal video quality/compression)
+  h265\-apple\-low (h265 encoded with apple hardware acceleration and low video quality/compression)
+  av1 (av1 encoded with default video quality/compression)
+  av1\-lossless (av1 encoded with lossless video quality/compression)
+  av1\-normal (av1 encoded with normal video quality/compression)
+  av1\-low (av1 encoded with low video quality/compression)
+.TP
+\fB\-\-skip\-existing\fR
+Skip files which are already existing
+.TP
+\fB\-\-skip\-specials\fR
+Skip special episodes
+.TP
+\fB\-y\fR, \fB\-\-yes\fR
+Skip any interactive input
+.TP
+\fB\-\-force\-hardsub\fR
+Force subtitles to be always burnt\-in
+.TP
+\fB\-t\fR, \fB\-\-threads\fR=\fITHREADS\fR [default: 8]
+The number of threads used to download
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Print help (see a summary with \*(Aq\-h\*(Aq)
+.TP
+<\fIURLS\fR>
+Url(s) to Crunchyroll episodes or series
