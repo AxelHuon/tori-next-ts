@@ -15,7 +15,7 @@ interface SingleAnimePageProps {
 const PageSingleAnime: React.FC<SingleAnimePageProps> = ({ params }) => {
   const { theme } = useTheme();
   const { anime, error } = useSingleAnim(params.mal_id);
-  const { data, error: errorSeasonsCollections } = useSeasonsCollection(anime?.title || '');
+  const { data, error: errorSeasonsCollections } = useSeasonsCollection(anime?.title || '', 14);
 
   const handleClickDownloadButton = async (url: string, title: string) => {
     const download = () => axios.get(`/api/upload-episode?url=${url}&title=${title}`);
