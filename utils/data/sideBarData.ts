@@ -20,7 +20,7 @@ export const sideBarData: SideBarDataProps[] = [
   },
   {
     id: 2,
-    label: 'Catalogué',
+    label: 'Catalogue',
     icon: CatalogueIcon,
     href: '/catalogue',
   },
@@ -34,6 +34,6 @@ export const sideBarData: SideBarDataProps[] = [
     id: 4,
     label: 'Mes groupes',
     icon: GroupsIcon,
-    href: '/my-groups',
+    href: '/my-groups.ts',
   },
 ];
